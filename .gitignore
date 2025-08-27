@@ -1,0 +1,10 @@
+# directories
+.next
+dist
+node_modules
+
+# files
+*.env
+*.log
+*.tsbuildinfo
+settings.local.json

@@ -1,0 +1,45 @@
+name: "Deploy to Vercel"
+
+concurrency:
+  cancel-in-progress: false
+  group: "vercel"
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    env:
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "Check out the repo"
+        uses: "actions/checkout@v5"
+
+      - name: "Set up devkit"
+        uses: "sablier-labs/devkit/actions/setup@main"
+        with:
+          package-manager: "bun"
+
+      - name: "Run code checks"
+        run: "just full-check"
+
+      - name: "Pull Vercel environment"
+        run: "na vercel pull --environment=production --token=$VERCEL_TOKEN --yes"
+
+      - name: "Build app using Vercel"
+        env:
+          NEXT_TELEMETRY_DISABLED: true
+        run: "na vercel build --prod --token=$VERCEL_TOKEN"
+
+      - name: "Deploy app to Vercel"
+        run: "na vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN"
+
+      - name: "Add summary"
+        run: | # shell
+          echo "## Deploy result" >> $GITHUB_STEP_SUMMARY
+          echo "✅ Passed" >> $GITHUB_STEP_SUMMARY

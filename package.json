@@ -1,0 +1,32 @@
+{
+  "name": "@prb/next-template",
+  "description": "Next.js template for building web applications.",
+  "version": "1.0.0",
+  "dependencies": {
+    "@biomejs/biome": "^2.2.2",
+    "@sablier/devkit": "github:sablier-labs/devkit#main",
+    "@tailwindcss/postcss": "^4.1.12",
+    "@types/node": "^24.3.0",
+    "@types/react": "^19.1.11",
+    "@types/react-dom": "^19.1.8",
+    "husky": "^9.1.7",
+    "knip": "^5.63.0",
+    "lint-staged": "^16.1.5",
+    "next": "^15.5.2",
+    "postcss": "^8.5.6",
+    "prettier": "^3.6.2",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "tailwindcss": "^4.1.12",
+    "typescript": "^5.9.2",
+    "vercel": "^46.0.4"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "prepare": "husky"
+  }
+}
