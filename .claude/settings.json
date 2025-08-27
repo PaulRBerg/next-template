@@ -1,0 +1,5 @@
+{
+  "permissions": {
+    "allow": ["mcp__context7", "mcp__playwright"]
+  }
+}

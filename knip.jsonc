@@ -1,0 +1,5 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema-jsonc.json",
+  "ignoreDependencies": ["husky", "vercel", "tailwindcss"],
+  "project": ["app/**/*.{js,jsx,ts,tsx}"]
+}

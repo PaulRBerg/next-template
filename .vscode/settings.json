@@ -1,0 +1,18 @@
+{
+  "biome.enabled": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
+  },
+  "search.exclude": {
+    ".next": true,
+    "node_modules": true
+  },
+  "[md][yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css][javascript][javascriptreact][json][jsonc][typescript][typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  }
+}
