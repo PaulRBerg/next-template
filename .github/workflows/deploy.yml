@@ -21,32 +21,24 @@ jobs:
       - name: "Check out the repo"
         uses: "actions/checkout@v5"
 
-      - name: "Install Just command runner"
-        uses: "extractions/setup-just@v3"
+      - name: "Set up devkit"
+        uses: "sablier-labs/devkit/actions/setup@main"
         with:
-          just-version: "1"
-
-      - name: "Install Bun"
-        uses: "oven-sh/setup-bun@v2"
-        with:
-          bun-version: "latest"
-
-      - name: "Install dependencies"
-        run: "bun install"
+          package-manager: "bun"
 
       - name: "Run code checks"
         run: "just full-check"
 
       - name: "Pull Vercel environment"
-        run: "bun vercel pull --environment=production --token=$VERCEL_TOKEN --yes"
+        run: "na vercel pull --environment=production --token=$VERCEL_TOKEN --yes"
 
       - name: "Build app using Vercel"
         env:
           NEXT_TELEMETRY_DISABLED: true
-        run: "bun vercel build --prod --token=$VERCEL_TOKEN"
+        run: "na vercel build --prod --token=$VERCEL_TOKEN"
 
       - name: "Deploy app to Vercel"
-        run: "bun vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN"
+        run: "na vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN"
 
       - name: "Add summary"
         run: | # shell
