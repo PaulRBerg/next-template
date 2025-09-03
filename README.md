@@ -31,6 +31,10 @@ This template provides:
 
 Optimized for developer productivity and application performance.
 
+> [!NOTE]
+>
+> Some of the configuration files depend upon the [Sablier DevKit](https://github.com/sablier-labs/devkit)
+
 ## Getting Started
 
 Click the [`Use this template`](https://github.com/PaulRBerg/next-template/generate) button to create a new repository.
