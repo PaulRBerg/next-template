@@ -1,26 +1,13 @@
-// Biome v2: https://next.biomejs.dev
 {
-  "$schema": "https://biomejs.dev/schemas/latest/schema.json",
-  "assist": {
-    "enabled": true,
-    "actions": {
-      "source": {
-        "organizeImports": "on",
-        "useSortedKeys": "on"
-      }
-    }
-  },
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "extends": ["@sablier/devkit/biome"],
   "files": {
-    "maxSize": 5242880 // 5MB
+    "includes": ["**/*.{js,jsx,json,jsonc,ts,tsx}"]
   },
   "formatter": {
-    "enabled": true,
-    "formatWithErrors": true,
-    "indentStyle": "space",
     "lineWidth": 100
   },
   "linter": {
-    "enabled": true,
     "rules": {
       "a11y": {
         "noSvgWithoutTitle": "off",
@@ -30,44 +17,10 @@
         "noImportantStyles": "off",
         "noStaticOnlyClass": "off"
       },
-      "correctness": {
-        "noUnusedImports": "off",
-        "noUnusedVariables": "error"
-      },
-      "nursery": {
-        "noFloatingPromises": "error"
-      },
-      "recommended": true,
-      "style": {
-        "useImportType": {
-          "level": "warn",
-          "options": {
-            "style": "separatedType"
-          }
-        },
-        "useTemplate": "off"
-      },
       "suspicious": {
         "noArrayIndexKey": "off",
         "noControlCharactersInRegex": "off"
       }
     }
-  },
-  "overrides": [
-    {
-      "assist": {
-        "actions": {
-          "source": {
-            "useSortedKeys": "off"
-          }
-        }
-      },
-      "includes": ["**/*.{json,json5,jsonc}"]
-    }
-  ],
-  "vcs": {
-    "clientKind": "git",
-    "enabled": true,
-    "useIgnoreFile": true
   }
 }
