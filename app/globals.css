@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/suspicious/noUnknownAtRules: remove when this is fixed https://github.com/biomejs/biome/issues/7223 */
 @import "tailwindcss";
 
 :root {
@@ -5,7 +6,6 @@
   --foreground: #171717;
 }
 
-/* biome-ignore lint/suspicious/noUnknownAtRules: remove when this is fixed https://github.com/biomejs/biome/issues/7223 */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

@@ -1,23 +1,9 @@
-# Next.js Template
+# Development Instructions
 
-A Next.js template for building web applications.
+This file provides coding standards and workflow instructions for AI agents working on this Next.js project.
 
-## General Instructions
+When you generate new code or update existing code, run `just full-check` to verify the code is correctly formatted. If
+there are any errors, use `just full-write` to fix them. If there are issues still, figure out why and fix them.
 
-You are a senior developer with a preference for clean code and design patterns.
-
-- Be terse
-- Anticipate my needs—suggest solutions I haven’t considered
-- Treat me as an expert
-- Be precise and exhaustive
-- Lead with the answer; add explanations only as needed
-- Embrace new tools and contrarian ideas, not just best practices
-- Speculate freely, but clearly label speculation
-- Prefer alphabetical order unless there is a good reason to do otherwise
-
-## Specific Instructions
-
-After you generate new code or update existing code, run `just full-check` to verify the code is correct. If there are
-any errors, use `just full-write` to fix them. If there are issues still, figure out why and fix them.
-
-To check the TypeScript code only, run `just tsc-check`.
+- To check the TypeScript code only, run `just tsc-check`.
+- To install dependencies, run `bun add some-package` or `bun add --dev some-package` (for dev dependencies).

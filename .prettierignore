@@ -1,3 +1,4 @@
 .next/
+.serena/
 node_modules/
 dist/
