@@ -1,12 +1,26 @@
+// Biome v2: https://next.biomejs.dev
 {
-  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "$schema": "https://biomejs.dev/schemas/latest/schema.json",
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": "on",
+        "useSortedKeys": "on"
+      }
+    }
+  },
   "files": {
-    "includes": ["**/*.{css,js,jsx,json,jsonc,ts,tsx}"]
+    "maxSize": 5242880 // 5MB
   },
   "formatter": {
+    "enabled": true,
+    "formatWithErrors": true,
+    "indentStyle": "space",
     "lineWidth": 100
   },
   "linter": {
+    "enabled": true,
     "rules": {
       "a11y": {
         "noSvgWithoutTitle": "off",
@@ -15,9 +29,43 @@
       "complexity": {
         "noImportantStyles": "off"
       },
+      "correctness": {
+        "noUnusedImports": "off",
+        "noUnusedVariables": "error"
+      },
+      "nursery": {
+        "noFloatingPromises": "error"
+      },
+      "recommended": true,
+      "style": {
+        "useImportType": {
+          "level": "warn",
+          "options": {
+            "style": "separatedType"
+          }
+        },
+        "useTemplate": "off"
+      },
       "suspicious": {
         "noArrayIndexKey": "off"
       }
     }
+  },
+  "overrides": [
+    {
+      "assist": {
+        "actions": {
+          "source": {
+            "useSortedKeys": "off"
+          }
+        }
+      },
+      "includes": ["**/*.{json,json5,jsonc}"]
+    }
+  ],
+  "vcs": {
+    "clientKind": "git",
+    "enabled": true,
+    "useIgnoreFile": true
   }
 }
