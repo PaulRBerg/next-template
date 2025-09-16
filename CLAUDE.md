@@ -72,7 +72,7 @@ just tsc-check  # TypeScript validation only
 ### Styling
 
 - Use Tailwind's design tokens (no arbitrary values unless necessary)
-- Component variants with `cva` (class-variance-authority)
+- Component variants with `tv` (tailwind-variants)
 - Dark mode support via `dark:` modifier
 - Consistent spacing scale
 
@@ -86,6 +86,31 @@ just tsc-check  # TypeScript validation only
 - Minimize client-side JavaScript
 
 ### Common Patterns
+
+#### Component Variants with Tailwind Variants
+
+```typescript
+import { tv } from "tailwind-variants";
+
+const button = tv({
+  base: "font-medium rounded-lg transition-colors",
+  variants: {
+    variant: {
+      primary: "bg-blue-500 text-white hover:bg-blue-600",
+      secondary: "bg-gray-200 text-gray-900 hover:bg-gray-300",
+    },
+    size: {
+      sm: "px-3 py-1.5 text-sm",
+      md: "px-4 py-2",
+      lg: "px-6 py-3 text-lg",
+    },
+  },
+  defaultVariants: {
+    variant: "primary",
+    size: "md",
+  },
+});
+```
 
 #### Data Fetching (Server Component)
 
