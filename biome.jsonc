@@ -27,7 +27,8 @@
         "useKeyWithClickEvents": "off"
       },
       "complexity": {
-        "noImportantStyles": "off"
+        "noImportantStyles": "off",
+        "noStaticOnlyClass": "off"
       },
       "correctness": {
         "noUnusedImports": "off",
@@ -47,7 +48,8 @@
         "useTemplate": "off"
       },
       "suspicious": {
-        "noArrayIndexKey": "off"
+        "noArrayIndexKey": "off",
+        "noControlCharactersInRegex": "off"
       }
     }
   },
