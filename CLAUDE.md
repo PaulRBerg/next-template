@@ -2,6 +2,11 @@
 
 AI agents working on this Next.js project should follow these guidelines.
 
+## Most Important Thing
+
+After generating new code, run `just full-write` to format it, then `just full-check` to validate. If issues remain,
+identify and resolve the root cause.
+
 ## Tech Stack
 
 - **Framework**: Next.js 15+ (App Router)
@@ -157,7 +162,3 @@ function ClientComponent({ initialData }) {
 - Add `debugger` statements for breakpoints
 - Check Network tab for API failures
 - Use React DevTools for component state
-
-## Before Committing
-
-Always run `just full-check` and fix any issues with `just full-write`.
