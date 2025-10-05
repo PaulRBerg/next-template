@@ -80,6 +80,7 @@ just tsc-check  # TypeScript validation only
 - Component variants with `tv` (tailwind-variants)
 - Dark mode support via `dark:` modifier
 - Consistent spacing scale
+- Always apply `cursor-pointer` to buttons and any clickable HTML elements
 
 ### Performance
 
@@ -98,7 +99,7 @@ just tsc-check  # TypeScript validation only
 import { tv } from "tailwind-variants";
 
 const button = tv({
-  base: "font-medium rounded-lg transition-colors",
+  base: "font-medium rounded-lg transition-colors cursor-pointer",
   variants: {
     variant: {
       primary: "bg-blue-500 text-white hover:bg-blue-600",
