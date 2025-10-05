@@ -1,6 +1,7 @@
-set allow-duplicate-variables := true
-set allow-duplicate-recipes := true
+set allow-duplicate-variables
+set allow-duplicate-recipes
 set shell := ["bash", "-euo", "pipefail", "-c"]
+set unstable
 
 # ---------------------------------------------------------------------------- #
 #                                 DEPENDENCIES                                 #
@@ -16,7 +17,7 @@ bun := require("bun")
 GLOBS_PRETTIER := "**/*.{md,mdx,yaml,yml}"
 
 # ---------------------------------------------------------------------------- #
-#                                    RECIPES                                   #
+#                                    SCRIPTS                                   #
 # ---------------------------------------------------------------------------- #
 
 # Default recipe
@@ -27,6 +28,13 @@ default:
 [confirm("Are you sure you want to delete all node_modules, including in subdirectories? y/n")]
 clean-modules:
     bunx del-cli "node_modules" "**/node_modules"
+
+# Deploy website to Vercel
+deploy environment="production":
+    na vercel pull --environment={{ environment }} --token=$VERCEL_TOKEN --yes
+    na vercel build --prod --token=$VERCEL_TOKEN
+    na vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN
+alias d := deploy
 
 # ---------------------------------------------------------------------------- #
 #                                     LINT                                     #
@@ -102,12 +110,8 @@ clean:
 @dev:
     bun next dev --turbopack
 
-# Start the Next.js app
+# Build and start the Next.js app
 [group("app")]
-start:
-    #!/usr/bin/env sh
-    if [ ! -d .next ]; then
-        bun next build
-    fi
+@start: build
     bun next start
 

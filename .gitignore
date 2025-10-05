@@ -1,7 +1,8 @@
 # directories
-.next
-dist
-node_modules
+.next/
+.serena/
+dist/
+node_modules/
 
 # files
 *.env
