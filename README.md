@@ -44,8 +44,14 @@ Or clone manually:
 ```bash
 git clone https://github.com/PaulRBerg/next-template.git my-app
 cd my-app
+```
+
+And then run:
+
+```bash
 bun install
 bun husky
+just --list
 ```
 
 New to Next.js? Check out these resources:
@@ -86,9 +92,11 @@ secrets:
 
 ## Commands
 
-This template uses [Just](https://just.systems/) for task automation:
+This template uses [Just](https://just.systems/) for task automation.
 
 ### Development
+
+Make sure to run `bun install` first!
 
 | Command      | Description              |
 | ------------ | ------------------------ |
