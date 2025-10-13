@@ -10,10 +10,10 @@ dayjs.extend(relativeTime);
 dayjs.extend(utc);
 dayjs.extend(timezone);
 
-interface TimestampProps {
+type TimestampProps = {
   date?: string | Date;
   label?: string;
-}
+};
 
 export function Timestamp({ date = dayjs().toDate(), label = "Last updated" }: TimestampProps) {
   const [showRelative, setShowRelative] = useState(true);

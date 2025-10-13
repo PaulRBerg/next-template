@@ -53,7 +53,7 @@ just tsc-check  # TypeScript validation only
 ### TypeScript
 
 - Always use strict mode
-- Prefer `interface` over `type` for object shapes
+- Prefer `type` over `interface` for object shapes
 - Use `satisfies` operator for type-safe constants
 - Avoid `any`; use `unknown` if type is truly unknown
 - Export types from dedicated `.types.ts` files

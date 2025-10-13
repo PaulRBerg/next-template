@@ -25,12 +25,11 @@ const buttonVariants = tv({
   },
 });
 
-export interface ButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
-  children: ReactNode;
-  asChild?: boolean;
-}
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
+  VariantProps<typeof buttonVariants> & {
+    children: ReactNode;
+    asChild?: boolean;
+  };
 
 export function Button({
   className,
