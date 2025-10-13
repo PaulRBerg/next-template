@@ -4,8 +4,21 @@ AI agents working on this Next.js project should follow these guidelines.
 
 ## Most Important Thing
 
-After generating new code, run `just full-write` to format it, then `just full-check` to validate. If issues remain,
-identify and resolve the root cause.
+After generating new code, run `just full-write` to format it, then run targeted checks:
+
+**Granular Checks:**
+
+- **CSS/JS/TS/JSON**: Run `just biome-check <paths>` and `just tsc-check <globs>`
+- **Markdown/YAML**: Run `just prettier-check <globs>`
+- **Mixed file types**: Run `just full-check`
+
+**Targeted Approach:**
+
+- Pass specific **paths** to `biome-check` (e.g., `just biome-check app/page.tsx app/layout.tsx`)
+- Pass **globs** to `prettier-check` (e.g., `just prettier-check "**/*.md"`)
+- Pass **globs** to `tsc-check` (e.g., `just tsc-check "app/**/*.ts"`)
+
+If issues remain, identify and resolve the root cause.
 
 ## Tech Stack
 
