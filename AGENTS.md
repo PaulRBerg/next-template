@@ -1,0 +1,1 @@
+/Users/prb/Workspace/templates/next-template/CLAUDE.md
