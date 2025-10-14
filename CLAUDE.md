@@ -36,11 +36,11 @@ If issues remain, identify and resolve the root cause.
 ### Dependency Management
 
 ```bash
-bun install             # Install all dependencies
-bun add package-name    # Add runtime dependency
-bun add -d package-name # Add dev dependency
-bun remove package-name # Remove dependency
-bunx package-name       # Execute package
+ni                   # Install all dependencies
+ni package-name      # Add runtime dependency
+ni -D package-name   # Add dev dependency
+nun package-name     # Remove dependency
+nlx package-name     # Execute package
 ```
 
 ### Development Workflow
