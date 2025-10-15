@@ -4,24 +4,31 @@ AI agents working on this Next.js project should follow these guidelines.
 
 ## Most Important Thing
 
-After generating code: `just full-write` → then verify with targeted checks.
+After generating code, follow these steps in order. Do not proceed to the next step unless the current step passes.
 
-**Check by file type:**
+**Order of operations:**
 
-- **JS/TS/JSON/CSS/GRAPHQL**: `just biome-check <paths>` — pass specific paths
-- **Markdown/YAML**: `just prettier-check <globs>` — pass glob patterns
-- **TypeScript**: `just tsc-check` — always have to check the entire project
-- **Mixed**: `just full-check`
+1. **`just full-write`** — auto-fix all issues
+2. **`just prettier-check <globs>`** — verify Markdown/YAML files (pass specific file paths or globs, or omit args if
+   10+ files changed)
+3. **`just biome-check <globs>`** — verify JS/TS/JSON/CSS/GraphQL files (pass specific file paths or globs, or omit args
+   if 10+ files changed)
+4. **`just tsc-check`** — verify TypeScript types across entire project
 
 **Examples:**
 
 ```bash
-just biome-check app/page.tsx app/layout.tsx
-just prettier-check "**/*.md" "**/*.yml"
-just tsc-check
+just full-write                                  # Step 1: Always first
+just prettier-check README.md CHANGELOG.md       # Step 2: Specific files
+just prettier-check "docs/**/*.md"               # Step 2: Specific globs
+just prettier-check                              # Step 2: more than 10 files changed
+just biome-check app/page.tsx app/layout.tsx     # Step 3: Specific files
+just biome-check "app/**/*.ts" "app/**/*.tsx"    # Step 3: Specific globs
+just biome-check                                 # Step 3: more than 10 files changed
+just tsc-check                                   # Step 4: Always last
 ```
 
-If issues remain, investigate the root cause and fix them.
+If any step fails, think about how to fix it.
 
 ## Tech Stack
 
