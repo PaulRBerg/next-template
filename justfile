@@ -41,7 +41,7 @@ alias d := deploy
 @build:
     na next build
 
-# Start the Next.js app in dev mode
+# Start the Next.js app in dev mode on a random port
 [group("app")]
 @dev:
     na next dev --port 0 --turbopack
