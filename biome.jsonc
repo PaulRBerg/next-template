@@ -2,7 +2,7 @@
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "extends": ["@sablier/devkit/biome"],
   "files": {
-    "includes": ["**/*.{js,jsx,json,jsonc,ts,tsx}"]
+    "includes": ["**/*.{css,graphql,js,jsx,json,jsonc,ts,tsx}"]
   },
   "formatter": {
     "lineWidth": 100
