@@ -1,34 +1,56 @@
 # Development Instructions
 
-AI agents working on this Next.js project should follow these guidelines.
+AI agents working on this Next.js project must follow these guidelines.
 
 ## Most Important Thing
 
-After generating code, follow these steps in order. Do not proceed to the next step unless the current step passes.
+After generating code, run these commands **in order**.
 
-**Order of operations:**
+**File argument rules:**
 
-1. **`just full-write`** — auto-fix all issues
-2. **`just prettier-check <globs>`** — verify Markdown/YAML files (pass specific file paths or globs, or omit args if
-   10+ files changed)
-3. **`just biome-check <globs>`** — verify JS/TS/JSON/CSS/GraphQL files (pass specific file paths or globs, or omit args
-   if 10+ files changed)
-4. **`just tsc-check`** — verify TypeScript types across entire project
+- Changed fewer than 10 files? → Pass specific paths or globs
+- Changed 10+ files? → Omit file arguments to process all files
+
+**Command sequence:**
+
+1. **Identify which file types changed** — determines which tools to use in steps 2-5
+
+2. **`just prettier-write <files>`** — auto-fix Markdown/YAML (skip if none changed)
+
+3. **`just biome-write <files>`** — auto-fix JS/TS/JSON/CSS/GraphQL (skip if none changed)
+
+4. **`just prettier-check <files>`** — verify Markdown/YAML formatting (skip if none changed)
+
+5. **`just biome-check <files>`** — verify JS/TS/JSON/CSS/GraphQL formatting (skip if none changed)
+
+6. **`just tsc-check`** — verify TypeScript types (always run on entire project)
 
 **Examples:**
 
 ```bash
-just full-write                                  # Step 1: Always first
-just prettier-check README.md CHANGELOG.md       # Step 2: Specific files
-just prettier-check "docs/**/*.md"               # Step 2: Specific globs
-just prettier-check                              # Step 2: more than 10 files changed
-just biome-check app/page.tsx app/layout.tsx     # Step 3: Specific files
-just biome-check "app/**/*.ts" "app/**/*.tsx"    # Step 3: Specific globs
-just biome-check                                 # Step 3: more than 10 files changed
-just tsc-check                                   # Step 4: Always last
+# Fewer than 10 files: use specific paths
+just prettier-write README.md CHANGELOG.md
+just biome-write app/page.tsx app/layout.tsx
+just prettier-check README.md CHANGELOG.md
+just biome-check app/page.tsx app/layout.tsx
+
+# Fewer than 10 files: use globs
+just prettier-write "docs/**/*.md"
+just biome-write "app/**/*.ts" "app/**/*.tsx"
+just prettier-check "docs/**/*.md"
+just biome-check "app/**/*.ts" "app/**/*.tsx"
+
+# 10+ files: omit file arguments
+just prettier-write
+just biome-write
+just prettier-check
+just biome-check
+
+# TypeScript check always runs on entire project
+just tsc-check
 ```
 
-If any step fails, think about how to fix it.
+If any command fails, analyze the errors and fix it before continuing.
 
 ## Tech Stack
 
