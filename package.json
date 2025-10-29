@@ -1,6 +1,7 @@
 {
   "name": "@prb/next-template",
   "description": "Next.js template for building web applications.",
+  "private": true,
   "version": "1.0.0",
   "dependencies": {
     "@biomejs/biome": "^2.3.1",
@@ -29,7 +30,6 @@
   "engines": {
     "node": ">=20"
   },
-  "private": true,
   "scripts": {
     "build": "next build",
     "prepare": "husky"
