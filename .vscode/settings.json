@@ -13,7 +13,7 @@
   "[md][yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[css][javascript][javascriptreact][json][jsonc][typescript][typescriptreact]": {
+  "[css][graphql][javascript][javascriptreact][json][jsonc][typescript][typescriptreact]": {
     "editor.defaultFormatter": "biomejs.biome"
   }
 }

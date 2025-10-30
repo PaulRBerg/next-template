@@ -110,8 +110,10 @@ just tsc-check  # TypeScript validation only
 - Prefer `async/await` in Server Components over `useEffect`
 - Use `loading.tsx` and `error.tsx` for route-level states
 - Implement proper error boundaries
-- Use Next.js Image component for all images
+- Use `next/image` component for all images
 - Leverage ISR/SSG where appropriate
+- Do not use `useMemo` or `useCallback` - React Compiler (Next.js 15+) automatically optimizes re-renders
+- Use named exports: `export function MyComponent()` instead of `export default`
 
 ### State Management
 
