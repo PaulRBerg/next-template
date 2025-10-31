@@ -1,4 +1,3 @@
-/** biome-ignore-all lint/suspicious/noUnknownAtRules: remove when this is fixed https://github.com/biomejs/biome/issues/7223 */
 @import "tailwindcss";
 
 :root {

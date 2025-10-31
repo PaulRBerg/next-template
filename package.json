@@ -16,6 +16,7 @@
     "husky": "^9.1.7",
     "knip": "^5.66.4",
     "lint-staged": "^16.2.6",
+    "lucide-react": "^0.552.0",
     "next": "^16.0.1",
     "prettier": "^3.6.2",
     "react": "^19.2.0",

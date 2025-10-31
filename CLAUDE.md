@@ -128,6 +128,7 @@ just tsc-check  # TypeScript validation only
 - Dark mode support via `dark:` modifier
 - Consistent spacing scale
 - Always apply `cursor-pointer` to buttons and any clickable HTML elements
+- Use `lucide-react` for icons instead of hard-coding SVGs
 
 ### Performance
 
@@ -163,6 +164,22 @@ const button = tv({
     size: "md",
   },
 });
+```
+
+#### Using Icons with Lucide React
+
+```typescript
+import { ChevronRight, User, Settings } from "lucide-react";
+
+export function IconExample() {
+  return (
+    <div className="flex gap-4">
+      <ChevronRight className="h-6 w-6 text-blue-500" />
+      <User className="h-5 w-5" />
+      <Settings className="h-4 w-4 text-gray-600" />
+    </div>
+  );
+}
 ```
 
 #### Data Fetching (Server Component)
