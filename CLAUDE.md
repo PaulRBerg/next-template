@@ -56,10 +56,10 @@ If any command fails, analyze the errors and fix it before continuing.
 
 - **Framework**: Next.js 15+ (App Router)
 - **Styling**: Tailwind CSS
-- **Language**: TypeScript (strict mode)
+- **Language**: TypeScript
 - **Package Manager**: bun
 - **Task Runner**: just (casey/just)
-- **Linter and Formatter for TypeScript and JSON**: Biome (not Prettier)
+- **Linter and Formatter for TypeScript and JSON**: Biome
 - **Formatter for Markdown and YAML**: Prettier
 - **Date Handling**: dayjs (not native Date)
 
@@ -72,17 +72,6 @@ ni                   # Install all dependencies
 ni package-name      # Add runtime dependency
 ni -D package-name   # Add dev dependency
 nun package-name     # Remove dependency
-nlx package-name     # Execute package
-```
-
-### Development Workflow
-
-```bash
-just dev        # Start dev server
-just build      # Production build
-just full-check # Lint, format check, type check
-just full-write # Auto-fix all issues
-just tsc-check  # TypeScript validation only
 ```
 
 ## Code Standards
@@ -97,7 +86,6 @@ just tsc-check  # TypeScript validation only
 
 ### TypeScript
 
-- Always use strict mode
 - Prefer `type` over `interface` for object shapes
 - Use `satisfies` operator for type-safe constants
 - Avoid `any`; use `unknown` if type is truly unknown
@@ -108,18 +96,17 @@ just tsc-check  # TypeScript validation only
 - Use Server Components by default
 - Add `"use client"` only when needed (interactivity, hooks, browser APIs)
 - Prefer `async/await` in Server Components over `useEffect`
-- Use `loading.tsx` and `error.tsx` for route-level states
 - Implement proper error boundaries
 - Use `next/image` component for all images
 - Leverage ISR/SSG where appropriate
-- Do not use `useMemo` or `useCallback` - React Compiler (Next.js 15+) automatically optimizes re-renders
+- Do not use `useMemo` or `useCallback` - React Compiler (Next.js v15+) automatically optimizes re-renders
 - Use named exports: `export function MyComponent()` instead of `export default`
 
 ### State Management
 
 - Server state: Server Components + fetch
 - Client state: useState/useReducer for local state
-- Complex client state: Consider Zustand or Jotai
+- Complex client state: use Zustand
 
 ### Styling
 
@@ -133,7 +120,6 @@ just tsc-check  # TypeScript validation only
 ### Performance
 
 - Lazy load heavy components with `dynamic()`
-- Use `next/font` for font optimization
 - Implement proper loading states
 - Optimize images (WebP, proper sizes)
 - Code split at route boundaries
@@ -143,7 +129,7 @@ just tsc-check  # TypeScript validation only
 
 #### Component Variants with Tailwind Variants
 
-```typescript
+```ts
 import { tv } from "tailwind-variants";
 
 const button = tv({
@@ -168,7 +154,7 @@ const button = tv({
 
 #### Using Icons with Lucide React
 
-```typescript
+```ts
 import { ChevronRight, User, Settings } from "lucide-react";
 
 export function IconExample() {
@@ -184,7 +170,7 @@ export function IconExample() {
 
 #### Data Fetching (Server Component)
 
-```typescript
+```ts
 async function Page() {
   const data = await fetch("...", {
     next: { revalidate: 3600 },
@@ -195,7 +181,7 @@ async function Page() {
 
 #### Client Component with Server Data
 
-```typescript
+```ts
 // page.tsx (Server Component)
 async function Page() {
   const data = await fetchData();
@@ -216,13 +202,13 @@ function ClientComponent({ initialData }) {
 ### Common Issues
 
 1. **Hydration mismatch**: Check for browser-only code in SSR
-2. **Module not found**: Clear `.next` and reinstall with `bun install`
+2. **Module not found**: Clear `.next` and reinstall with `ni`
 3. **Type errors**: Run `just tsc-check` for detailed output
 4. **Build failures**: Check `next build` output and env vars
 
-### Debug Tips
+### Debugging
 
-- Use Playwright MCP
+- Use Playwright MCP server and Next DevTools MCP server
 - Use `console.dir(obj, { depth: null })` for deep inspection
 - Add `debugger` statements for breakpoints
 - Check Network tab for API failures
