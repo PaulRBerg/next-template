@@ -1,5 +1,12 @@
 # directories
+.claude/
 .next/
 .serena/
 node_modules/
 dist/
+
+# files
+**/*.js
+**/*.jsx
+**/*.ts
+**/*.tsx
