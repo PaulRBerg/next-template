@@ -15,7 +15,7 @@ type TimestampProps = {
   label?: string;
 };
 
-export function Timestamp({ date = dayjs().toDate(), label = "Last updated" }: TimestampProps) {
+export function Timestamp({ date = dayjs().toDate(), label = "Last modified" }: TimestampProps) {
   const [showRelative, setShowRelative] = useState(true);
   const [mounted, setMounted] = useState(false);
 
