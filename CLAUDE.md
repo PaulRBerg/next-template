@@ -13,28 +13,23 @@ After generating code, run these commands **in order**.
 
 **Command sequence:**
 
-1. **Identify which file types changed** — determines which tools to use in steps 2-5
+1. **Identify which file types changed**
 
-2. **`just biome-write <files>`** — auto-fix JS/TS/JSON/CSS/GraphQL (skip if none changed)
+2. **`just biome-lint <files>`** — lint JS/TS/JSON/CSS/GraphQL (skip if none changed)
 
-3. **`just biome-check <files>`** — verify JS/TS/JSON/CSS/GraphQL formatting (skip if none changed)
-
-4. **`just tsc-check`** — verify TypeScript types (always run on entire project)
+3. **`just tsc-check`** — verify TypeScript types (always run on entire project)
 
 **Examples:**
 
 ```bash
 # Fewer than 10 files: use specific paths
-just biome-write app/page.tsx app/layout.tsx
-just biome-check app/page.tsx app/layout.tsx
+just biome-lint app/page.tsx app/layout.tsx
 
-# Fewer than 10 files: use globs
-just biome-write "app/**/*.ts" "app/**/*.tsx"
-just biome-check "app/**/*.ts" "app/**/*.tsx"
+# More than 10 files: use globs
+just biome-lint app/**/*.ts app/**/*.tsx
 
 # 10+ files: omit file arguments
-just biome-write
-just biome-check
+just biome-lint
 
 # TypeScript check always runs on entire project
 just tsc-check
@@ -44,12 +39,12 @@ If any command fails, analyze the errors and fix it before continuing.
 
 ## Tech Stack
 
-- **Framework**: Next.js 15+ (App Router)
+- **Framework**: Next.js v16 (App Router)
 - **Styling**: Tailwind CSS
 - **Language**: TypeScript
 - **Package Manager**: bun
 - **Task Runner**: just (casey/just)
-- **Linter and Formatter for TypeScript and JSON**: Biome
+- **Linter and Formatter**: Biome
 - **Formatter for Markdown and YAML**: Prettier
 - **Date Handling**: dayjs (not native Date)
 
