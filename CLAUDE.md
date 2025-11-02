@@ -184,17 +184,4 @@ function ClientComponent({ initialData }) {
 
 ## Troubleshooting
 
-### Common Issues
-
-1. **Hydration mismatch**: Check for browser-only code in SSR
-2. **Module not found**: Clear `.next` and reinstall with `ni`
-3. **Type errors**: Run `just tsc-check` for detailed output
-4. **Build failures**: Check `next build` output and env vars
-
-### Debugging
-
-- Use Next DevTools MCP server
-- Use `console.dir(obj, { depth: null })` for deep inspection
-- Add `debugger` statements for breakpoints
-- Check Network tab for API failures
-- Use React DevTools for component state
+Use Next DevTools MCP server.
