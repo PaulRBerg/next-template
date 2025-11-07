@@ -1,4 +1,5 @@
 {
+  "enableAllProjectMcpServers": true,
   "permissions": {
     "allow": ["mcp__context7", "mcp__next-devtools", "mcp__playwright"]
   }

@@ -23,10 +23,10 @@ After generating code, run these commands **in order**.
 
 ```bash
 # Fewer than 10 files: use specific paths
-just biome-lint app/page.tsx app/layout.tsx
+just biome-lint "app/page.tsx" "app/layout.tsx"
 
 # More than 10 files: use globs
-just biome-lint app/**/*.ts app/**/*.tsx
+just biome-lint "app/**/*.ts" "app/**/*.tsx"
 
 # 10+ files: omit file arguments
 just biome-lint
@@ -43,7 +43,7 @@ If any command fails, analyze the errors and fix it before continuing.
 - **Styling**: Tailwind CSS
 - **Language**: TypeScript
 - **Package Manager**: bun
-- **Task Runner**: just (casey/just)
+- **Task Runner**: just
 - **Linter and Formatter**: Biome
 - **Formatter for Markdown and YAML**: Prettier
 - **Date Handling**: dayjs (not native Date)
@@ -54,23 +54,16 @@ If any command fails, analyze the errors and fix it before continuing.
 
 ```bash
 ni                   # Install all dependencies
-ni package-name      # Add runtime dependency
+ni package-name      # Add dependency
 ni -D package-name   # Add dev dependency
 nun package-name     # Remove dependency
 ```
 
 ## Code Standards
 
-### File Structure
-
-- Components in `app/components/`
-- API routes in `app/api/`
-- Shared utilities in `app/lib/`
-- Types in `app/types/`
-- Keep components small and focused (single responsibility)
-
 ### TypeScript
 
+- Keep components small and focused (single responsibility)
 - Prefer `type` over `interface` for object shapes
 - Use `satisfies` operator for type-safe constants
 - Avoid `any`; use `unknown` if type is truly unknown
@@ -99,7 +92,6 @@ nun package-name     # Remove dependency
 - Component variants with `tv` (tailwind-variants)
 - Dark mode support via `dark:` modifier
 - Consistent spacing scale
-- Always apply `cursor-pointer` to buttons and any clickable HTML elements
 - Use `lucide-react` for icons instead of hard-coding SVGs
 
 ### Performance
@@ -140,45 +132,15 @@ const button = tv({
 #### Using Icons with Lucide React
 
 ```ts
-import { ChevronRight, User, Settings } from "lucide-react";
+import { ChevronRight, User } from "lucide-react";
 
 export function IconExample() {
   return (
     <div className="flex gap-4">
       <ChevronRight className="h-6 w-6 text-blue-500" />
       <User className="h-5 w-5" />
-      <Settings className="h-4 w-4 text-gray-600" />
     </div>
   );
-}
-```
-
-#### Data Fetching (Server Component)
-
-```ts
-async function Page() {
-  const data = await fetch("...", {
-    next: { revalidate: 3600 },
-  });
-  return <div>{/* render */}</div>;
-}
-```
-
-#### Client Component with Server Data
-
-```ts
-// page.tsx (Server Component)
-async function Page() {
-  const data = await fetchData();
-  return <ClientComponent initialData={data} />;
-}
-
-// ClientComponent.tsx
-"use client"
-
-function ClientComponent({ initialData }) {
-  const [data, setData] = useState(initialData);
-  // ...
 }
 ```
 
