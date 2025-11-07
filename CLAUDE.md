@@ -110,7 +110,7 @@ nun package-name     # Remove dependency
 import { tv } from "tailwind-variants";
 
 const button = tv({
-  base: "font-medium rounded-lg transition-colors cursor-pointer",
+  base: "cursor-pointer rounded-lg font-medium transition-colors",
   variants: {
     variant: {
       primary: "bg-blue-500 text-white hover:bg-blue-600",

@@ -22,6 +22,16 @@
         "noImportantStyles": "off",
         "noStaticOnlyClass": "off"
       },
+      "nursery": {
+        "useSortedClasses": {
+          "fix": "safe",
+          "level": "warn",
+          "options": {
+            "attributes": ["classList"],
+            "functions": ["clsx", "cva", "cn", "tv", "tw", "tw.*"]
+          }
+        }
+      },
       "suspicious": {
         "noArrayIndexKey": "off",
         "noControlCharactersInRegex": "off"

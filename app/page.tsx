@@ -6,9 +6,10 @@ import { Timestamp } from "./components/timestamp";
 import { Button } from "./components/ui/button";
 
 export default function Home() {
+  const newLocal = "py-0.5 px-1 font-mono font-semibold rounded bg-black/5 dark:bg-white/6";
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center">
+    <div className="grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 font-sans sm:p-20">
+      <main className="row-start-2 flex flex-col items-center gap-[32px]">
         <Image
           className="dark:invert"
           src="/next.svg"
@@ -17,22 +18,18 @@ export default function Home() {
           height={38}
           priority
         />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center">
+        <ol className="list-inside list-decimal text-center font-mono text-sm/6">
           <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
+            Get started by editing <code className={newLocal}>app/page.tsx</code>.
           </li>
           <li className="tracking-[-.01em]">Save and see your changes instantly.</li>
         </ol>
 
         {/* Three Column Layout */}
-        <div className="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid w-full max-w-7xl grid-cols-1 gap-8 lg:grid-cols-3">
           {/* Column 1: Tech Stack Showcase */}
           <div className="flex flex-col gap-4">
-            <h2 className="text-lg font-semibold text-center sm:text-left">
+            <h2 className="text-center font-semibold text-lg sm:text-left">
               Built with Modern Tools
             </h2>
             <div className="grid grid-cols-2 gap-3">
@@ -42,28 +39,28 @@ export default function Home() {
                   icon: Zap,
                   name: "Next.js",
                   url: "https://nextjs.org",
-                  version: "16",
+                  version: "v16",
                 },
                 {
                   description: "UI library",
                   icon: Component,
                   name: "React",
                   url: "https://react.dev",
-                  version: "19",
+                  version: "v19",
                 },
                 {
                   description: "Type safety",
                   icon: Code,
                   name: "TypeScript",
                   url: "https://www.typescriptlang.org",
-                  version: "5",
+                  version: "v5",
                 },
                 {
                   description: "Utility-first CSS",
                   icon: Palette,
                   name: "Tailwind CSS",
                   url: "https://tailwindcss.com",
-                  version: "4",
+                  version: "v4",
                 },
                 {
                   description: "Fast runtime",
@@ -99,16 +96,16 @@ export default function Home() {
                   href={tech.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group p-4 rounded-lg border border-black/[.08] dark:border-white/[.145] bg-white/50 dark:bg-black/20 hover:bg-black/[.05] dark:hover:bg-white/[.05] transition-colors cursor-pointer"
+                  className="group cursor-pointer rounded-lg border border-black/8 bg-white/50 p-4 transition-colors hover:bg-black/5 dark:border-white/[.145] dark:bg-black/20 dark:hover:bg-white/5"
                 >
-                  <tech.icon className="h-6 w-6 mb-2 text-black dark:text-white" />
+                  <tech.icon className="mb-2 h-6 w-6 text-black dark:text-white" />
                   <div className="font-semibold text-sm tracking-tight">
                     {tech.name}
                     {tech.version && (
                       <span className="ml-1 text-gray-600 dark:text-gray-400">{tech.version}</span>
                     )}
                   </div>
-                  <div className="text-xs text-gray-600 dark:text-gray-400 mt-1">
+                  <div className="mt-1 text-gray-600 text-xs dark:text-gray-400">
                     {tech.description}
                   </div>
                 </a>
@@ -118,12 +115,12 @@ export default function Home() {
 
           {/* Column 2: Interactive UI with Tailwind Variants */}
           <div className="flex flex-col gap-4">
-            <h2 className="text-lg font-semibold text-center sm:text-left">
+            <h2 className="text-center font-semibold text-lg sm:text-left">
               Interactive UI with Tailwind Variants
             </h2>
             <div className="flex flex-col gap-4">
               {/* CVA Button Variants Demo */}
-              <div className="flex gap-4 items-center flex-col sm:flex-row">
+              <div className="flex flex-col items-center gap-4 sm:flex-row">
                 <Button variant="primary" size="md" asChild>
                   <a
                     href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
@@ -152,7 +149,7 @@ export default function Home() {
               </div>
 
               {/* Additional CVA Button Examples */}
-              <div className="flex gap-2 items-center flex-wrap">
+              <div className="flex flex-wrap items-center gap-2">
                 <Button variant="ghost" size="sm">
                   Ghost Button
                 </Button>
@@ -168,15 +165,15 @@ export default function Home() {
 
           {/* Column 3: Form Validation with Zod */}
           <div className="flex flex-col gap-4">
-            <h2 className="text-lg font-semibold text-center sm:text-left">
+            <h2 className="text-center font-semibold text-lg sm:text-left">
               Form Validation with Zod
             </h2>
             <ContactForm />
           </div>
         </div>
       </main>
-      <footer className="row-start-3 flex flex-col gap-4 items-center justify-center">
-        <div className="flex gap-[24px] flex-wrap items-center justify-center">
+      <footer className="row-start-3 flex flex-col items-center justify-center gap-4">
+        <div className="flex flex-wrap items-center justify-center gap-[24px]">
           <Button variant="ghost" size="sm" asChild>
             <a
               href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
