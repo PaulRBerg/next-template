@@ -23,10 +23,10 @@ After generating code, run these commands **in order**.
 
 ```bash
 # Fewer than 10 files: use specific paths
-na biome lint "app/page.tsx" "app/layout.tsx"
+na biome lint app/page.tsx app/layout.tsx
 
 # More than 10 files: use globs
-na biome lint "app/**/*.ts" "app/**/*.tsx"
+na biome lint app/**/*.ts app/**/*.tsx
 
 # 10+ files: omit file arguments
 na biome lint
