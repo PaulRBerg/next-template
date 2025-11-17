@@ -28,8 +28,8 @@ clean:
 # Deploy website to Vercel
 deploy environment="production":
     na vercel pull --environment={{ environment }} --token=$VERCEL_TOKEN --yes
-    na vercel build --prod --token=$VERCEL_TOKEN
-    na vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN
+    na vercel build --target={{ environment }} --token=$VERCEL_TOKEN
+    na vercel deploy --target={{ environment }} --prebuilt --token=$VERCEL_TOKEN
 alias d := deploy
 
 # ---------------------------------------------------------------------------- #
