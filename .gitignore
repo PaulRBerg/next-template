@@ -7,5 +7,6 @@ node_modules/
 # files
 *.env
 *.log
+next-env.d.ts
 *.tsbuildinfo
 settings.local.json
