@@ -2,7 +2,7 @@
 
 AI agents working on this Next.js project must follow these guidelines.
 
-## Most Important Thing
+## Lint Rules
 
 After generating code, run these commands **in order**.
 
