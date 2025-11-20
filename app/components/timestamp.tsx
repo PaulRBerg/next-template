@@ -29,14 +29,14 @@ export function Timestamp({ date = dayjs().toDate(), label = "Last modified" }: 
 
   // Prevent hydration mismatch
   if (!mounted) {
-    return <div className="text-xs text-gray-500 dark:text-gray-400">{label}: Loading...</div>;
+    return <div className="text-gray-500 text-xs dark:text-gray-400">{label}: Loading...</div>;
   }
 
   return (
     <button
       type="button"
       onClick={() => setShowRelative(!showRelative)}
-      className="text-xs text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors cursor-pointer"
+      className="cursor-pointer text-gray-500 text-xs transition-colors hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
       title="Click to toggle between relative and absolute time"
     >
       {label}: {showRelative ? relativeTime : absoluteTime}

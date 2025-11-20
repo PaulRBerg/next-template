@@ -1,12 +1,25 @@
+"use client";
+
 import dayjs from "dayjs";
-import { Code, Component, FileCheck, Package, Palette, Shield, Terminal, Zap } from "lucide-react";
+import {
+  Code,
+  Component,
+  FileCheck,
+  Languages,
+  Package,
+  Palette,
+  Shield,
+  Terminal,
+  Zap,
+} from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { ContactForm } from "./components/contact-form";
 import { Timestamp } from "./components/timestamp";
 import { Button } from "./components/ui/button";
 
 export default function Home() {
-  const newLocal = "py-0.5 px-1 font-mono font-semibold rounded bg-black/5 dark:bg-white/6";
+  const t = useTranslations("HomePage");
   return (
     <div className="grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 font-sans sm:p-20">
       <main className="row-start-2 flex flex-col items-center gap-[32px]">
@@ -20,7 +33,11 @@ export default function Home() {
         />
         <ol className="list-inside list-decimal text-center font-mono text-sm/6">
           <li className="mb-2 tracking-[-.01em]">
-            Get started by editing <code className={newLocal}>app/page.tsx</code>.
+            Get started by editing{" "}
+            <code className="rounded bg-black/5 px-1 py-0.5 font-mono font-semibold dark:bg-white/6">
+              app/page.tsx
+            </code>
+            .
           </li>
           <li className="tracking-[-.01em]">Save and see your changes instantly.</li>
         </ol>
@@ -30,7 +47,7 @@ export default function Home() {
           {/* Column 1: Tech Stack Showcase */}
           <div className="flex flex-col gap-4">
             <h2 className="text-center font-semibold text-lg sm:text-left">
-              Built with Modern Tools
+              {t("techStackHeading")}
             </h2>
             <div className="grid grid-cols-2 gap-3">
               {[
@@ -49,10 +66,17 @@ export default function Home() {
                   version: "v19",
                 },
                 {
+                  description: "Internationalization",
+                  icon: Languages,
+                  name: "next-intl",
+                  url: "https://next-intl.dev",
+                  version: "v4",
+                },
+                {
                   description: "Type safety",
                   icon: Code,
                   name: "TypeScript",
-                  url: "https://www.typescriptlang.org",
+                  url: "https://typescriptlang.org",
                   version: "v5",
                 },
                 {

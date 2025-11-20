@@ -1,11 +1,6 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "extends": ["@sablier/devkit/biome"],
-  "css": {
-    "parser": {
-      "tailwindDirectives": true
-    }
-  },
   "files": {
     "includes": ["**/*.{css,graphql,js,jsx,json,jsonc,ts,tsx}"]
   },

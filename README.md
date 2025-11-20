@@ -18,6 +18,7 @@ A modern Next.js template for building production-ready web applications.
 This template provides:
 
 - **[Next.js v15](https://nextjs.org)** - with App Router and React v19
+- **[next-intl](https://next-intl.dev)** — internationalization (i18n) library for Next.js
 - **[Vercel](https://vercel.com/guides/how-can-i-use-github-actions-with-vercel)** - for hosting and CI deployments
 - **[TypeScript v5](https://typescriptlang.org)** — type safety and enhanced developer experience
 - **[Tailwind CSS v4](https://tailwindcss.com)** — utility-first CSS framework for rapid styling
