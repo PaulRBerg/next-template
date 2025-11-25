@@ -5,9 +5,9 @@ import type { LucideIcon } from "lucide-react";
 import { Code, Component, Languages, Package, Palette, Shield, Terminal, Zap } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { Button } from "../ui/button";
-import { ContactForm } from "../ui/contact-form";
-import { Timestamp } from "../ui/timestamp";
+import { Button } from "../ui/Button";
+import { ContactForm } from "../ui/ContactForm";
+import { Timestamp } from "../ui/Timestamp";
 
 type TechItem = {
   name: string;
