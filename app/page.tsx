@@ -5,9 +5,9 @@ import type { LucideIcon } from "lucide-react";
 import { Code, Component, Languages, Package, Palette, Shield, Terminal, Zap } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { Button } from "../ui/Button";
-import { ContactForm } from "../ui/ContactForm";
-import { Timestamp } from "../ui/Timestamp";
+import { Button } from "@/ui/Button";
+import { ContactForm } from "@/ui/ContactForm";
+import { Timestamp } from "@/ui/Timestamp";
 
 type TechItem = {
   name: string;
@@ -235,14 +235,10 @@ function FooterLinks() {
   );
 }
 
-// -----------------------------------------------------------------------------
-// Main
-// -----------------------------------------------------------------------------
-
 export default function Home() {
   return (
     <div className="grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 font-sans sm:p-20">
-      <main className="row-start-2 flex flex-col items-center gap-[32px]">
+      <main className="row-start-2 flex flex-col items-center gap-8">
         <HeaderSection />
 
         {/* Three Column Layout */}

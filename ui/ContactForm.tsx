@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { z } from "zod";
-import { Button } from "./Button";
+import { Button } from "@/ui/Button";
 
 const emailSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
