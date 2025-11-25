@@ -2,17 +2,7 @@
 
 import dayjs from "dayjs";
 import type { LucideIcon } from "lucide-react";
-import {
-  Code,
-  Component,
-  FileCheck,
-  Languages,
-  Package,
-  Palette,
-  Shield,
-  Terminal,
-  Zap,
-} from "lucide-react";
+import { Code, Component, Languages, Package, Palette, Shield, Terminal, Zap } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Button } from "../ui/button";
@@ -75,13 +65,6 @@ const TECH_STACK: TechItem[] = [
     icon: Shield,
     name: "BiomeJS",
     url: "https://biomejs.dev",
-    version: "",
-  },
-  {
-    description: "Code formatter",
-    icon: FileCheck,
-    name: "Prettier",
-    url: "https://prettier.io",
     version: "",
   },
   {
