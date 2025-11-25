@@ -1,31 +1,14 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-  "extends": ["@sablier/devkit/biome"],
+  "extends": ["@sablier/devkit/biome/ui"],
   "files": {
     "includes": ["**/*.{css,graphql,js,jsx,json,jsonc,ts,tsx}"]
   },
-  "formatter": {
-    "lineWidth": 100
-  },
   "linter": {
     "rules": {
-      "a11y": {
-        "noSvgWithoutTitle": "off",
-        "useKeyWithClickEvents": "off"
-      },
       "complexity": {
         "noImportantStyles": "off",
         "noStaticOnlyClass": "off"
-      },
-      "nursery": {
-        "useSortedClasses": {
-          "fix": "safe",
-          "level": "warn",
-          "options": {
-            "attributes": ["classList"],
-            "functions": ["clsx", "cva", "cn", "tv", "tw", "tw.*"]
-          }
-        }
       },
       "suspicious": {
         "noArrayIndexKey": "off",
