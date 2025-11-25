@@ -22,17 +22,14 @@ After generating code, run these commands **in order**.
 **Examples:**
 
 ```bash
-# Fewer than 10 files: use specific paths
-na biome lint app/page.tsx app/layout.tsx
+# Fewer than 10 files: use specific paths and/or globs
+na biome lint app/page.tsx lib/**/*
 
-# More than 10 files: use globs
-na biome lint app/**/*.ts app/**/*.tsx
-
-# 10+ files: omit file arguments
+# 10+ files: run default command
 na biome lint
 
-# TypeScript check always runs on entire project
-na tsc
+# TypeScript check runs on entire project
+na tsc --noEmit
 ```
 
 If any command fails, analyze the errors and fix it before continuing.
