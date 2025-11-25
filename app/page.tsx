@@ -80,11 +80,11 @@ function HeaderSection() {
   return (
     <>
       <Image
-        className="dark:invert"
+        className="h-auto w-45 dark:invert"
         src="/next.svg"
         alt="Next.js logo"
-        width={180}
-        height={38}
+        width={0}
+        height={0}
         priority
       />
       <ol className="list-inside list-decimal text-center font-mono text-sm/6">
@@ -152,11 +152,11 @@ function InteractiveUISection() {
               rel="noopener noreferrer"
             >
               <Image
-                className="dark:invert"
+                className="h-5 w-5 dark:invert"
                 src="/vercel.svg"
                 alt="Vercel logomark"
-                width={20}
-                height={20}
+                width={0}
+                height={0}
               />
               Deploy now
             </a>
