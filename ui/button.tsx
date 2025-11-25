@@ -18,9 +18,9 @@ const buttonVariants = tv({
     },
     variant: {
       ghost: "hover:bg-gray-100 dark:hover:bg-gray-800",
-      primary: "bg-foreground text-background hover:bg-[#383838] dark:hover:bg-[#ccc]",
+      primary: "bg-foreground text-background hover:bg-neutral-700 dark:hover:bg-neutral-300",
       secondary:
-        "border border-black/[.08] border-solid hover:border-transparent hover:bg-[#f2f2f2] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]",
+        "border border-black/8 border-solid hover:border-transparent hover:bg-neutral-100 dark:border-white/[.145] dark:hover:bg-neutral-900",
     },
   },
 });
