@@ -11,7 +11,6 @@
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "babel-plugin-react-compiler": "^1.0.0",
-    "clsx": "^2.1.1",
     "dayjs": "^1.11.19",
     "husky": "^9.1.7",
     "knip": "^5.70.2",

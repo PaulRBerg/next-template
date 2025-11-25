@@ -1,6 +1,6 @@
 {
   "biome.enabled": true,
-  "tailwindCSS.classFunctions": ["clsx", "cva", "cn", "tv", "tw", "tw.*"],
+  "tailwindCSS.classFunctions": ["cva", "cn", "tv", "tw", "tw.*"],
   "typescript.tsdk": "node_modules/typescript/lib",
   "editor.codeActionsOnSave": {
     "source.fixAll.biome": "explicit",
