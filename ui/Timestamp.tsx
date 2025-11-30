@@ -1,45 +1,25 @@
-"use client";
-
-import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
-import timezone from "dayjs/plugin/timezone";
-import utc from "dayjs/plugin/utc";
-import { useEffect, useState } from "react";
-
-dayjs.extend(relativeTime);
-dayjs.extend(utc);
-dayjs.extend(timezone);
+import { DateTime } from "effect";
 
 type TimestampProps = {
-  date?: string | Date;
+  date?: DateTime.DateTime.Input;
   label?: string;
 };
 
-export function Timestamp({ date = dayjs().toDate(), label = "Last modified" }: TimestampProps) {
-  const [showRelative, setShowRelative] = useState(true);
-  const [mounted, setMounted] = useState(false);
+export function Timestamp({
+  date = DateTime.unsafeNow(),
+  label = "Last modified",
+}: TimestampProps) {
+  const dt = DateTime.unsafeMake(date);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const year = DateTime.getPart(dt, "year");
+  const month = String(DateTime.getPart(dt, "month")).padStart(2, "0");
+  const day = String(DateTime.getPart(dt, "day")).padStart(2, "0");
 
-  const timestamp = dayjs(date);
-  const relativeTime = timestamp.fromNow();
-  const absoluteTime = timestamp.format("YYYY-MM-DD [at] HH:mm A");
-
-  // Prevent hydration mismatch
-  if (!mounted) {
-    return <div className="text-gray-500 text-xs dark:text-gray-400">{label}: Loading...</div>;
-  }
+  const formatted = `${year}-${month}-${day}`;
 
   return (
-    <button
-      type="button"
-      onClick={() => setShowRelative(!showRelative)}
-      className="cursor-pointer text-gray-500 text-xs transition-colors hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
-      title="Click to toggle between relative and absolute time"
-    >
-      {label}: {showRelative ? relativeTime : absoluteTime}
-    </button>
+    <span className="text-gray-500 text-xs dark:text-gray-400">
+      {label}: {formatted}
+    </span>
   );
 }

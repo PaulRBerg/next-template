@@ -1,8 +1,5 @@
-"use client";
-
-import dayjs from "dayjs";
 import type { LucideIcon } from "lucide-react";
-import { Code, Component, Languages, Package, Palette, Shield, Terminal, Zap } from "lucide-react";
+import { Code, Component, Layers, Package, Palette, Shield, Terminal, Zap } from "lucide-react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Button } from "@/ui/Button";
@@ -33,11 +30,11 @@ const TECH_STACK: TechItem[] = [
     version: "v19",
   },
   {
-    description: "Internationalization",
-    icon: Languages,
-    name: "next-intl",
-    url: "https://next-intl.dev",
-    version: "v4",
+    description: "Typed functional effects",
+    icon: Layers,
+    name: "Effect-ts",
+    url: "https://effect.website",
+    version: "v3",
   },
   {
     description: "Type safety",
@@ -192,7 +189,9 @@ function InteractiveUISection() {
 function FormSection() {
   return (
     <div className="flex flex-col gap-4">
-      <h2 className="text-center font-semibold text-lg sm:text-left">Form Validation with Zod</h2>
+      <h2 className="text-center font-semibold text-lg sm:text-left">
+        Form Validation with Effect Schema
+      </h2>
       <ContactForm />
     </div>
   );
@@ -250,7 +249,7 @@ export default function Home() {
       </main>
       <footer className="row-start-3 flex flex-col items-center justify-center gap-4">
         <FooterLinks />
-        <Timestamp date={dayjs().toDate()} label="Template last updated" />
+        <Timestamp label="Template last updated" />
       </footer>
     </div>
   );
