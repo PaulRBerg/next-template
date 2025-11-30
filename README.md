@@ -17,7 +17,10 @@ A modern Next.js template for building production-ready web applications.
 
 This template provides:
 
-- **[Next.js v15](https://nextjs.org)** - with App Router and React v19
+- **[`AGENTS.md`](https://modelcontextprotocol.io/)** — Context instructions for AI agents like Claude Code
+- **[MCP](https://modelcontextprotocol.io/)** — `.mcp.json` file with MCP server configuration
+- **[Next.js v16](https://nextjs.org)** - with App Router and React v19
+- **[Effect-ts](https://effect.website)** — type-safe functional programming and async effects
 - **[next-intl](https://next-intl.dev)** — internationalization (i18n) library for Next.js
 - **[Vercel](https://vercel.com/guides/how-can-i-use-github-actions-with-vercel)** - for hosting and CI deployments
 - **[TypeScript v5](https://typescriptlang.org)** — type safety and enhanced developer experience
@@ -28,7 +31,6 @@ This template provides:
 - **[Just](https://just.systems)** — command runner for streamlined task automation
 - **[Husky](https://typicode.github.io/husky)** - automated Git hooks for code quality
 - **[Knip](https://github.com/webpro/knip)** — unused code and dependency detection
-- **[Claude Code](https://anthropic.com/claude-code)** — `CLAUDE.md` file and MCP servers configuration
 
 Optimized for developer productivity and application performance.
 
@@ -75,7 +77,7 @@ Start the development server:
 just dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view your application.
+The dev server starts on a random available port. Check the terminal output for the URL.
 
 ### Vercel Deployment
 
@@ -99,12 +101,13 @@ This template uses [Just](https://just.systems/) for task automation.
 
 Make sure to run `bun install` first!
 
-| Command      | Description              |
-| ------------ | ------------------------ |
-| `just dev`   | Start development server |
-| `just build` | Build for production     |
-| `just start` | Start production server  |
-| `just clean` | Clean build artifacts    |
+| Command       | Description              |
+| ------------- | ------------------------ |
+| `just dev`    | Start development server |
+| `just build`  | Build for production     |
+| `just start`  | Start production server  |
+| `just clean`  | Clean build artifacts    |
+| `just deploy` | Deploy to Vercel         |
 
 ### Code Linting
 
@@ -122,18 +125,29 @@ Run `just` to see all available commands.
 ## Project Structure
 
 ```tree
-├── app/                   # Next.js App Router directory
+├── .github/workflows/     # GitHub Actions (CI/CD)
+├── .husky/                # Git hooks configuration
+├── app/                   # Next.js App Router
+│   ├── api/health/        # Health check API route
 │   ├── favicon.ico        # Favicon
 │   ├── globals.css        # Global styles
 │   ├── layout.tsx         # Root layout
 │   └── page.tsx           # Home page
+├── i18n/                  # Internationalization
+│   ├── request.ts         # i18n request configuration
+│   └── translations/      # Translation files (JSON)
+├── lib/                   # Shared utilities
+│   ├── cn.ts              # Tailwind class merge utility
+│   └── effect/            # Effect-ts utilities
 ├── public/                # Static files
+├── ui/                    # UI components
+├── CLAUDE.md              # AI agent instructions
 ├── biome.jsonc            # Biome configuration
 ├── justfile               # Just command definitions
 ├── knip.jsonc             # Knip configuration
-├── next.config.js         # Next.js configuration
+├── next.config.ts         # Next.js configuration
 ├── package.json           # Package configuration
-├── postcss.config.js      # PostCSS configuration
+├── postcss.config.mjs     # PostCSS configuration
 └── tsconfig.json          # TypeScript configuration
 ```
 
@@ -144,7 +158,7 @@ Run `just` to see all available commands.
 Customize the design system by editing:
 
 - `app/globals.css` — global styles and Tailwind directives
-- `postcss.config.js` — PostCSS configuration
+- `postcss.config.mjs` — PostCSS configuration
 
 ### Linting and Formatting
 

@@ -43,7 +43,6 @@ at the end.
 - **Package Manager**: bun
 - **Task Runner**: just
 - **Linter and Formatter**: Biome
-- **Formatter for Markdown and YAML**: Prettier
 
 ## Commands
 
