@@ -32,18 +32,18 @@ na biome lint
 na tsgo --noEmit
 ```
 
-If any command fails, analyze the errors and fix it before continuing.
+If any command fails, analyze the errors and fix it before continuing. Then, run `just biome-write` to format all code
+at the end.
 
 ## Tech Stack
 
-- **Framework**: Next.js v16 (App Router)
-- **Styling**: Tailwind CSS
-- **Language**: TypeScript
+- **UI Components**: React v19 with Next.js v16
+- **Async Framework**: Effect-ts
+- **Styling**: Tailwind CSS v4
 - **Package Manager**: bun
 - **Task Runner**: just
 - **Linter and Formatter**: Biome
 - **Formatter for Markdown and YAML**: Prettier
-- **Date Handling**: dayjs (not native Date)
 
 ## Commands
 
@@ -58,24 +58,43 @@ nun package-name     # Remove dependency
 
 ## Code Standards
 
-### TypeScript
+### Naming Conventions
 
-- Keep components small and focused (single responsibility)
-- Prefer `type` over `interface` for object shapes
-- Use `satisfies` operator for type-safe constants
-- Avoid `any`; use `unknown` if type is truly unknown
-- Export types from dedicated `.types.ts` files
+- **Directories**: Always use `kebab-case` for directories (e.g., `user-profile`)
+- **Files**:
+  - Use `PascalCase` for components (e.g., `UserProfile.tsx`)
+  - Use `camelCase` for hooks (e.g., `useIsClient.ts`)
+  - Use `kebab-case` for all other files, e.g. utilities, machines, etc. (e.g., `error-handler.ts`)
 
-### React/Next.js Patterns
+### React/ Next.js
 
 - Use Server Components by default
 - Add `"use client"` only when needed (interactivity, hooks, browser APIs)
 - Prefer `async/await` in Server Components over `useEffect`
-- Implement proper error boundaries
-- Use `next/image` component for all images
-- Leverage ISR/SSG where appropriate
-- Do not use `useMemo` or `useCallback` - React Compiler (Next.js v15+) automatically optimizes re-renders
-- Use named exports: `export function MyComponent()` instead of `export default`
+- Lazy load heavy components with `next/dynamic` from `Component.lazy.tsx` files
+- Use named exports: `export function Foo()` instead of `export default`, unless you have to use a default export (e.g.,
+  in a `page.tsx` file)
+- Do not use `useMemo` or `useCallback` - React Compiler automatically optimizes re-renders
+
+### Server/Client Boundaries
+
+When creating or moving files, apply the appropriate boundary marker:
+
+- `"use client"` — files using React hooks, browser APIs, or event handlers
+- `"use server"` — files containing Server Actions (form submissions, mutations)
+- `import "server-only"` — files that must never reach the client (internal logic, non-`NEXT_PUBLIC_` env vars)
+- `import "client-only"` — files relying on browser APIs (`window`, `document`, etc.)
+
+Place directives at the very top of the file, before imports. Server Components need no directive—they are the default.
+
+### TypeScript
+
+- Prefer `type` over `interface`
+- Prefer `function` over `() =>` for function types (unless you have to use an arrow function for a callback or event
+  handler)
+- Use `satisfies` operator for type-safe constants
+- Avoid `any`; use `unknown` if type is truly unknown
+- Export types from dedicated `.types.ts` files
 
 ### State Management
 
@@ -87,59 +106,8 @@ nun package-name     # Remove dependency
 
 - Use Tailwind's design tokens (no arbitrary values unless necessary)
 - Component variants with `tv` (tailwind-variants)
-- Dark mode support via `dark:` modifier
 - Consistent spacing scale
 - Use `lucide-react` for icons instead of hard-coding SVGs
-
-### Performance
-
-- Lazy load heavy components with `dynamic()`
-- Implement proper loading states
-- Optimize images (WebP, proper sizes)
-- Code split at route boundaries
-- Minimize client-side JavaScript
-
-### Common Patterns
-
-#### Component Variants with Tailwind Variants
-
-```ts
-import { tv } from "tailwind-variants";
-
-const button = tv({
-  base: "cursor-pointer rounded-lg font-medium transition-colors",
-  variants: {
-    variant: {
-      primary: "bg-blue-500 text-white hover:bg-blue-600",
-      secondary: "bg-gray-200 text-gray-900 hover:bg-gray-300",
-    },
-    size: {
-      sm: "px-3 py-1.5 text-sm",
-      md: "px-4 py-2",
-      lg: "px-6 py-3 text-lg",
-    },
-  },
-  defaultVariants: {
-    variant: "primary",
-    size: "md",
-  },
-});
-```
-
-#### Using Icons with Lucide React
-
-```ts
-import { ChevronRight, User } from "lucide-react";
-
-export function IconExample() {
-  return (
-    <div className="flex gap-4">
-      <ChevronRight className="h-6 w-6 text-blue-500" />
-      <User className="h-5 w-5" />
-    </div>
-  );
-}
-```
 
 ## Troubleshooting
 

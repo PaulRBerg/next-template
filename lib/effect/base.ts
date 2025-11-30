@@ -1,3 +1,5 @@
+import "server-only";
+
 import { Next } from "@mcrovero/effect-nextjs";
 import { Layer, Logger, LogLevel } from "effect";
 

@@ -26,10 +26,12 @@
     "@types/react-dom": "^19.2.3",
     "@typescript/native-preview": "^7.0.0-dev.20251130.1",
     "babel-plugin-react-compiler": "^1.0.0",
+    "client-only": "^0.0.1",
     "husky": "^9.1.7",
     "knip": "^5.70.2",
     "lint-staged": "^16.2.7",
     "prettier": "^3.6.2",
+    "server-only": "^0.0.1",
     "tailwindcss": "^4.1.17",
     "vercel": "^48.10.11"
   },
