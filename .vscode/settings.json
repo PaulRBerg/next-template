@@ -2,7 +2,6 @@
   "biome.enabled": true,
   "tailwindCSS.classFunctions": ["cva", "cn", "tv", "tw", "tw.*"],
   "typescript.experimental.useTsgo": true,
-  "typescript.tsdk": "node_modules/typescript/lib",
   "editor.codeActionsOnSave": {
     "source.fixAll.biome": "explicit",
     "source.organizeImports.biome": "explicit"

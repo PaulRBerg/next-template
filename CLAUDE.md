@@ -32,7 +32,7 @@ na biome lint
 na tsgo --noEmit
 ```
 
-If any command fails, analyze the errors and fix it before continuing. Then, run `just biome-write` to format all code
+If any command fails, analyze the errors and fix them before continuing. Then, run `just biome-write` to format all code
 at the end.
 
 ## Tech Stack

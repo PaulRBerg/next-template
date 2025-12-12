@@ -5,9 +5,6 @@ import "./node_modules/@sablier/devkit/just/base.just"
 #                                 DEPENDENCIES                                 #
 # ---------------------------------------------------------------------------- #
 
-# Bun: https://github.com/oven-sh/bun
-bun := require("bun")
-
 # Ni: https://github.com/antfu-collective/ni
 na := require("na")
 ni := require("ni")
@@ -23,7 +20,7 @@ default:
 
 # Clean the .next directory
 clean:
-    bunx del-cli .next
+    nlx del-cli .next
 
 # Deploy website to Vercel
 deploy environment="production":
@@ -50,4 +47,3 @@ alias d := deploy
 [group("app")]
 start: build
     na next start
-
