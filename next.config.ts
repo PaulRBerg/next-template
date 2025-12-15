@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   // Image optimization
   images: {
     formats: ["image/webp"],
-    minimumCacheTTL: 14400, // 4 hours
+    minimumCacheTTL: 14_400, // 4 hours
     remotePatterns: [
       // Whitelist external domains for Next.js Image optimization
       // Required for images from CDNs, CMSs, or third-party services

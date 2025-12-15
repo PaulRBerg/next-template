@@ -10,3 +10,5 @@ dist/
 **/*.jsx
 **/*.ts
 **/*.tsx
+
+README.md

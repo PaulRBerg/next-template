@@ -5,7 +5,7 @@ export const EmailSchema = Schema.Struct({
   email: Schema.String.pipe(
     Schema.pattern(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, {
       message: () => "Please enter a valid email address",
-    }),
+    })
   ),
 });
 

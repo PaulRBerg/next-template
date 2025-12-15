@@ -77,12 +77,12 @@ function HeaderSection() {
   return (
     <>
       <Image
-        className="h-auto w-45 dark:invert"
-        src="/next.svg"
         alt="Next.js logo"
-        width={0}
+        className="h-auto w-45 dark:invert"
         height={0}
         priority
+        src="/next.svg"
+        width={0}
       />
       <ol className="list-inside list-decimal text-center font-mono text-sm/6">
         <li className="mb-2 tracking-[-.01em]">
@@ -101,15 +101,15 @@ function HeaderSection() {
 function TechCard({ tech }: { tech: TechItem }) {
   return (
     <a
-      href={tech.url}
-      target="_blank"
-      rel="noopener noreferrer"
       className="group cursor-pointer rounded-lg border border-black/8 bg-white/50 p-4 transition-colors hover:bg-black/5 dark:border-white/[.145] dark:bg-black/20 dark:hover:bg-white/5"
+      href={tech.url}
+      rel="noopener noreferrer"
+      target="_blank"
     >
       <tech.icon className="mb-2 h-6 w-6 text-black dark:text-white" />
       <div className="font-semibold text-sm tracking-tight">
         {tech.name}
-        {tech.version && (
+        {Boolean(tech.version) && (
           <span className="ml-1 text-gray-600 dark:text-gray-400">{tech.version}</span>
         )}
       </div>
@@ -142,27 +142,27 @@ function InteractiveUISection() {
       <div className="flex flex-col gap-4">
         {/* CVA Button Variants Demo */}
         <div className="flex flex-col items-center gap-4 sm:flex-row">
-          <Button variant="primary" size="md" asChild>
+          <Button asChild size="md" variant="primary">
             <a
               href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
               rel="noopener noreferrer"
+              target="_blank"
             >
               <Image
-                className="h-5 w-5 dark:invert"
-                src="/vercel.svg"
                 alt="Vercel logomark"
-                width={0}
+                className="h-5 w-5 dark:invert"
                 height={0}
+                src="/vercel.svg"
+                width={0}
               />
               Deploy now
             </a>
           </Button>
-          <Button variant="secondary" size="md" asChild>
+          <Button asChild size="md" variant="secondary">
             <a
               href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
               rel="noopener noreferrer"
+              target="_blank"
             >
               Read our docs
             </a>
@@ -171,13 +171,13 @@ function InteractiveUISection() {
 
         {/* Additional CVA Button Examples */}
         <div className="flex flex-wrap items-center gap-2">
-          <Button variant="ghost" size="sm">
+          <Button size="sm" variant="ghost">
             Ghost Button
           </Button>
-          <Button variant="primary" size="sm">
+          <Button size="sm" variant="primary">
             Small Primary
           </Button>
-          <Button variant="secondary" size="lg">
+          <Button size="lg" variant="secondary">
             Large Secondary
           </Button>
         </div>
@@ -200,33 +200,33 @@ function FormSection() {
 function FooterLinks() {
   return (
     <div className="flex flex-wrap items-center justify-center gap-[24px]">
-      <Button variant="ghost" size="sm" asChild>
+      <Button asChild size="sm" variant="ghost">
         <a
           href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
           rel="noopener noreferrer"
+          target="_blank"
         >
-          <Image aria-hidden src="/file.svg" alt="File icon" width={16} height={16} />
+          <Image alt="File icon" aria-hidden height={16} src="/file.svg" width={16} />
           Learn
         </a>
       </Button>
-      <Button variant="ghost" size="sm" asChild>
+      <Button asChild size="sm" variant="ghost">
         <a
           href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
           rel="noopener noreferrer"
+          target="_blank"
         >
-          <Image aria-hidden src="/window.svg" alt="Window icon" width={16} height={16} />
+          <Image alt="Window icon" aria-hidden height={16} src="/window.svg" width={16} />
           Examples
         </a>
       </Button>
-      <Button variant="ghost" size="sm" asChild>
+      <Button asChild size="sm" variant="ghost">
         <a
           href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
           rel="noopener noreferrer"
+          target="_blank"
         >
-          <Image aria-hidden src="/globe.svg" alt="Globe icon" width={16} height={16} />
+          <Image alt="Globe icon" aria-hidden height={16} src="/globe.svg" width={16} />
           Go to nextjs.org →
         </a>
       </Button>

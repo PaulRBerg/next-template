@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.3.8",
-    "@sablier/devkit": "^1.6.0",
+    "@sablier/devkit": "github:sablier-labs/devkit#main",
     "@tailwindcss/postcss": "^4.1.17",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.7",
@@ -33,6 +33,7 @@
     "knip": "^5.71.0",
     "lint-staged": "^16.2.7",
     "prettier": "^3.7.4",
+    "ultracite": "^6.4.1",
     "vercel": "^48.12.1"
   },
   "scripts": {

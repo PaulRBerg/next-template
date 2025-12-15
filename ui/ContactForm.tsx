@@ -15,7 +15,7 @@ export function ContactForm() {
         <p className="text-green-800 text-sm dark:text-green-200">
           ✅ Thanks for subscribing! We'll keep you updated.
         </p>
-        <Button variant="ghost" size="sm" onClick={() => window.location.reload()} className="mt-2">
+        <Button className="mt-2" onClick={() => window.location.reload()} size="sm" variant="ghost">
           Subscribe another email
         </Button>
       </div>
@@ -33,15 +33,17 @@ export function ContactForm() {
 
       <div className="space-y-2">
         <input
-          type="email"
+          className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800"
           name="email"
           placeholder="your.email@example.com"
-          className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800"
+          type="email"
         />
-        {state?.error && <p className="text-red-600 text-sm dark:text-red-400">{state.error}</p>}
+        {state?.error !== undefined && (
+          <p className="text-red-600 text-sm dark:text-red-400">{state.error}</p>
+        )}
       </div>
 
-      <Button type="submit" disabled={isPending} className="w-full" size="sm">
+      <Button className="w-full" disabled={isPending} size="sm" type="submit">
         {isPending ? "Subscribing..." : "Subscribe"}
       </Button>
     </form>

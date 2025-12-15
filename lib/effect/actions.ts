@@ -25,7 +25,7 @@ const subscribeEffect = (_prevState: FormState, formData: FormData) =>
       // Extract message from ParseError or use generic message
       const message = error instanceof Error ? error.message : "Please enter a valid email address";
       return Effect.succeed({ error: message, success: false as const });
-    }),
+    })
   );
 
 export const subscribe = BaseAction.build(subscribeEffect);

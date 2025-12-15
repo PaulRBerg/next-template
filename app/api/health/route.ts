@@ -14,8 +14,8 @@ class HealthApi extends HttpApiGroup.make("health").add(
       status: Schema.Literal("healthy"),
       timestamp: Schema.String,
       version: Schema.String,
-    }),
-  ),
+    })
+  )
 ) {}
 
 class Api extends HttpApi.make("api").add(HealthApi).prefix("/api/health") {}
@@ -27,8 +27,8 @@ const HealthLive = HttpApiBuilder.group(Api, "health", (handlers) =>
       status: "healthy" as const,
       timestamp: new Date().toISOString(),
       version: "1.0.0",
-    }),
-  ),
+    })
+  )
 );
 
 const ApiLive = HttpApiBuilder.api(Api).pipe(Layer.provide(HealthLive));
@@ -37,7 +37,7 @@ const ApiLive = HttpApiBuilder.api(Api).pipe(Layer.provide(HealthLive));
 const { handler } = Layer.empty.pipe(
   Layer.provideMerge(ApiLive),
   Layer.merge(HttpServer.layerContext),
-  HttpApiBuilder.toWebHandler,
+  HttpApiBuilder.toWebHandler
 );
 
 type Handler = (req: Request) => Promise<Response>;

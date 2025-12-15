@@ -116,7 +116,7 @@ Make sure to run `bun install` first!
 | `just biome-check`  | Check code with Biome  |
 | `just biome-format` | Format code with Biome |
 | `just full-check`   | Run all quality checks |
-| `just full-write`   | Fix all quality issues |
+| `just full-write`   | Fix all quality issues    |
 
 ### Other Commands
 
