@@ -67,15 +67,20 @@ nun package-name     # Remove dependency
 
 ### React/ Next.js
 
-- Use Server Components by default
-- Add `"use client"` only when needed (interactivity, hooks, browser APIs)
-- Prefer `async/await` in Server Components over `useEffect`
 - Lazy load heavy components with `next/dynamic` from `Component.lazy.tsx` files
 - Use named exports: `export function Foo()` instead of `export default`, unless you have to use a default export (e.g.,
   in a `page.tsx` file)
 - Do not use `useMemo` or `useCallback` - React Compiler automatically optimizes re-renders
+- React 19+: prefer `ref` as a prop over `React.forwardRef`
+- Prefer Next.js `<Image>` over `<img>` for images
 
 ### Server/Client Boundaries
+
+Core rules:
+
+- Use Server Components by default
+- Add `"use client"` only when needed (interactivity, hooks, browser APIs)
+- Prefer `async/await` in Server Components over `useEffect`
 
 When creating or moving files, apply the appropriate boundary marker:
 
