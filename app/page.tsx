@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { Button } from "@/ui/Button";
 import { ContactForm } from "@/ui/ContactForm";
+import { SmartLink } from "@/ui/SmartLink";
 import { Timestamp } from "@/ui/Timestamp";
 
 type TechItem = {
@@ -100,11 +101,9 @@ function HeaderSection() {
 
 function TechCard({ tech }: { tech: TechItem }) {
   return (
-    <a
+    <SmartLink
       className="group cursor-pointer rounded-lg border border-black/8 bg-white/50 p-4 transition-colors hover:bg-black/5 dark:border-white/[.145] dark:bg-black/20 dark:hover:bg-white/5"
       href={tech.url}
-      rel="noopener noreferrer"
-      target="_blank"
     >
       <tech.icon className="mb-2 h-6 w-6 text-black dark:text-white" />
       <div className="font-semibold text-sm tracking-tight">
@@ -114,7 +113,7 @@ function TechCard({ tech }: { tech: TechItem }) {
         )}
       </div>
       <div className="mt-1 text-gray-600 text-xs dark:text-gray-400">{tech.description}</div>
-    </a>
+    </SmartLink>
   );
 }
 
@@ -143,11 +142,7 @@ function InteractiveUISection() {
         {/* CVA Button Variants Demo */}
         <div className="flex flex-col items-center gap-4 sm:flex-row">
           <Button asChild size="md" variant="primary">
-            <a
-              href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
+            <SmartLink href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app">
               <Image
                 alt="Vercel logomark"
                 className="h-5 w-5 dark:invert"
@@ -156,16 +151,12 @@ function InteractiveUISection() {
                 width={0}
               />
               Deploy now
-            </a>
+            </SmartLink>
           </Button>
           <Button asChild size="md" variant="secondary">
-            <a
-              href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
+            <SmartLink href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app">
               Read our docs
-            </a>
+            </SmartLink>
           </Button>
         </div>
 
@@ -201,34 +192,22 @@ function FooterLinks() {
   return (
     <div className="flex flex-wrap items-center justify-center gap-[24px]">
       <Button asChild size="sm" variant="ghost">
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
+        <SmartLink href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app">
           <Image alt="File icon" aria-hidden height={16} src="/file.svg" width={16} />
           Learn
-        </a>
+        </SmartLink>
       </Button>
       <Button asChild size="sm" variant="ghost">
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
+        <SmartLink href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app">
           <Image alt="Window icon" aria-hidden height={16} src="/window.svg" width={16} />
           Examples
-        </a>
+        </SmartLink>
       </Button>
       <Button asChild size="sm" variant="ghost">
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
+        <SmartLink href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app">
           <Image alt="Globe icon" aria-hidden height={16} src="/globe.svg" width={16} />
           Go to nextjs.org →
-        </a>
+        </SmartLink>
       </Button>
     </div>
   );
