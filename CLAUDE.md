@@ -2,6 +2,12 @@
 
 AI agents working on this Next.js project must follow these guidelines.
 
+References:
+
+- **Project overview**: @README.md
+- **Dependencies**: @package.json
+- **Commands**: @justfile
+
 ## Lint Rules
 
 After generating code, run these commands **in order**.
@@ -34,15 +40,6 @@ na tsgo --noEmit
 
 If any command fails, analyze the errors and fix only those related to files you changed. Ignore pre-existing errors in
 other files. Then, run `just biome-write` to format all code at the end.
-
-## Tech Stack
-
-- **UI Components**: React v19 with Next.js v16
-- **Async Framework**: Effect-ts
-- **Styling**: Tailwind CSS v4
-- **Package Manager**: bun
-- **Task Runner**: just
-- **Linter and Formatter**: Biome
 
 ## Commands
 
