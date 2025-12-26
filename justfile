@@ -47,3 +47,27 @@ alias d := deploy
 [group("app")]
 start: build
     na next start
+
+# ---------------------------------------------------------------------------- #
+#                             OXC COMMAND OVERRIDES                            #
+# ---------------------------------------------------------------------------- #
+
+# Override devkit's GLOBS_PRETTIER to include JSON, CSS, and GraphQL
+GLOBS_PRETTIER := "\"**/*.{css,graphql,json,jsonc,md,mdx,yaml,yml}\""
+
+# Check code with oxlint and oxfmt (replaces biome-check)
+[group("checks"), no-cd]
+@biome-check +globs=".":
+    na oxlint {{ globs }}
+    na oxfmt --check . "!**/*.json" "!**/*.jsonc" --no-error-on-unmatched-pattern
+
+# Lint code with oxlint (replaces biome-lint)
+[group("checks"), no-cd]
+@biome-lint +globs=".":
+    na oxlint {{ globs }}
+
+# Fix code with oxfmt and oxlint (replaces biome-write)
+[group("checks"), no-cd]
+@biome-write +globs=".":
+    na oxfmt --write . "!**/*.json" "!**/*.jsonc" --no-error-on-unmatched-pattern
+    na oxlint --fix {{ globs }}

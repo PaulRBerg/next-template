@@ -1,0 +1,22 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "react", "react-perf", "nextjs", "unicorn", "import"],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "style": "off"
+  },
+  "rules": {
+    "no-unused-vars": "error",
+    "typescript/no-floating-promises": "error",
+    "react/no-array-index-key": "off",
+    "no-control-regex": "off",
+    "react/react-in-jsx-scope": "off",
+    "import/no-unassigned-import": "off",
+    "nextjs/no-html-link-for-pages": "off"
+  }
+}

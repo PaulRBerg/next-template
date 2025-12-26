@@ -61,8 +61,8 @@ const TECH_STACK: TechItem[] = [
   {
     description: "Linting & formatting",
     icon: Shield,
-    name: "BiomeJS",
-    url: "https://biomejs.dev",
+    name: "oxc",
+    url: "https://oxc.rs",
     version: "",
   },
   {

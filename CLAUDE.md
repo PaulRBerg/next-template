@@ -21,7 +21,7 @@ After generating code, run these commands **in order**.
 
 1. **Identify which file types changed**
 
-2. **`na biome lint <files>`** — lint JS/TS/JSON/CSS/GraphQL (skip if none changed)
+2. **`na oxlint <files>`** — lint JS/TS (skip if none changed)
 
 3. **`na tsgo --noEmit`** — verify TypeScript types (always run on entire project)
 
@@ -29,10 +29,10 @@ After generating code, run these commands **in order**.
 
 ```bash
 # Fewer than 10 files: use specific paths and/or globs
-na biome lint app/page.tsx lib/**/*
+na oxlint app/page.tsx lib/**/*
 
 # 10+ files: run default command
-na biome lint
+na oxlint
 
 # TypeScript check runs on entire project
 na tsgo --noEmit

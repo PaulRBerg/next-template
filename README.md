@@ -26,7 +26,8 @@ This template provides:
 - **[TypeScript v5](https://typescriptlang.org)** — type safety and enhanced developer experience
 - **[Tailwind CSS v4](https://tailwindcss.com)** — utility-first CSS framework for rapid styling
 - **[Bun](https://bun.sh)** — fast package manager and JavaScript runtime
-- **[BiomeJS](https://biomejs.dev)** — lightning-fast linting and formatting for TypeScript and JSON
+- **[oxlint](https://oxc.rs)** — lightning-fast linting for TypeScript
+- **[oxfmt](https://oxc.rs)** — lightning-fast formatting for TypeScript
 - **[Prettier](https://prettier.io)** — code formatting for Markdown and YAML files
 - **[Just](https://just.systems)** — command runner for streamlined task automation
 - **[Husky](https://typicode.github.io/husky)** - automated Git hooks for code quality
@@ -111,12 +112,13 @@ Make sure to run `bun install` first!
 
 ### Code Linting
 
-| Command             | Description            |
-| ------------------- | ---------------------- |
-| `just biome-check`  | Check code with Biome  |
-| `just biome-format` | Format code with Biome |
-| `just full-check`   | Run all quality checks |
-| `just full-write`   | Fix all quality issues    |
+| Command            | Description                       |
+| ------------------ | --------------------------------- |
+| `just biome-check` | Check code with oxlint and oxfmt  |
+| `just biome-lint`  | Lint code with oxlint             |
+| `just biome-write` | Fix code with oxfmt and oxlint    |
+| `just full-check`  | Run all quality checks            |
+| `just full-write`  | Fix all quality issues            |
 
 ### Other Commands
 
@@ -142,7 +144,8 @@ Run `just` to see all available commands.
 ├── public/                # Static files
 ├── ui/                    # UI components
 ├── CLAUDE.md              # AI agent instructions
-├── biome.jsonc            # Biome configuration
+├── .oxlintrc.json         # oxlint configuration
+├── .oxfmtrc.jsonc         # oxfmt configuration
 ├── justfile               # Just command definitions
 ├── knip.jsonc             # Knip configuration
 ├── next.config.ts         # Next.js configuration
@@ -162,7 +165,8 @@ Customize the design system by editing:
 
 ### Linting and Formatting
 
-Code quality is enforced with Biome. See `biome.jsonc` for configuration.
+Code quality is enforced with oxlint (linting) and oxfmt (formatting). See `.oxlintrc.json` and `.oxfmtrc.jsonc` for
+configuration.
 
 ### Dead Code Detection
 

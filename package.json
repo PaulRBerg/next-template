@@ -21,7 +21,6 @@
     "tailwind-variants": "^3.2.2"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.3.8",
     "@sablier/devkit": "github:sablier-labs/devkit#main",
     "@tailwindcss/postcss": "^4.1.17",
     "@types/node": "^24.10.1",
@@ -32,6 +31,8 @@
     "husky": "^9.1.7",
     "knip": "^5.71.0",
     "lint-staged": "^16.2.7",
+    "oxfmt": "^0.20.0",
+    "oxlint": "^1.35.0",
     "prettier": "^3.7.4",
     "ultracite": "^6.4.1",
     "vercel": "^48.12.1"

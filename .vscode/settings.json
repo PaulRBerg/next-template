@@ -1,10 +1,10 @@
 {
-  "biome.enabled": true,
+  "oxc.enable": true,
   "tailwindCSS.classFunctions": ["cva", "cn", "tv", "tw", "tw.*"],
   "typescript.experimental.useTsgo": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.biome": "explicit",
-    "source.organizeImports.biome": "explicit"
+    "source.fixAll.oxc": "explicit",
+    "source.organizeImports": "explicit"
   },
   "search.exclude": {
     ".next": true,
@@ -13,7 +13,10 @@
   "[md][yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[css][graphql][javascript][javascriptreact][json][jsonc][typescript][typescriptreact]": {
-    "editor.defaultFormatter": "biomejs.biome"
+  "[css][graphql][json][jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript][javascriptreact][typescript][typescriptreact]": {
+    "editor.defaultFormatter": "nickshanks347.oxfmt"
   }
 }
