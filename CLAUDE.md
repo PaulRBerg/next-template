@@ -38,8 +38,7 @@ na biome lint
 na tsgo --noEmit
 ```
 
-If any command fails, analyze the errors and fix only those related to files you changed. Ignore pre-existing errors in
-other files. Then, run `just biome-write` to format all code at the end.
+If any command fails, analyze the errors and fix only those related to files you changed.
 
 ## Commands
 
