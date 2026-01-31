@@ -16,6 +16,9 @@
         "noImportantStyles": "off",
         "noStaticOnlyClass": "off"
       },
+      "style": {
+        "useConsistentTypeDefinitions": "off"
+      },
       "suspicious": {
         "noArrayIndexKey": "off",
         "noControlCharactersInRegex": "off"
