@@ -1,7 +1,6 @@
 import type { LucideIcon } from "lucide-react";
 import { Code, Component, Layers, Package, Palette, Shield, Terminal, Zap } from "lucide-react";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
 import { Button } from "@/ui/Button";
 import { ContactForm } from "@/ui/ContactForm";
 import { SmartLink } from "@/ui/SmartLink";
@@ -118,11 +117,9 @@ function TechCard({ tech }: { tech: TechItem }) {
 }
 
 function TechStackSection() {
-  const t = useTranslations("HomePage");
-
   return (
     <div className="flex flex-col gap-4">
-      <h2 className="text-center font-semibold text-lg sm:text-left">{t("techStackHeading")}</h2>
+      <h2 className="text-center font-semibold text-lg sm:text-left">Built with Modern Tools</h2>
       <div className="grid grid-cols-2 gap-3">
         {TECH_STACK.map((tech) => (
           <TechCard key={tech.name} tech={tech} />

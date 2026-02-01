@@ -21,7 +21,6 @@ This template provides:
 - **[MCP](https://modelcontextprotocol.io/)** — `.mcp.json` file with MCP server configuration
 - **[Next.js v16](https://nextjs.org)** - with App Router and React v19
 - **[Effect-ts](https://effect.website)** — type-safe functional programming and async effects
-- **[next-intl](https://next-intl.dev)** — internationalization (i18n) library for Next.js
 - **[Vercel](https://vercel.com/guides/how-can-i-use-github-actions-with-vercel)** - for hosting and CI deployments
 - **[TypeScript v5](https://typescriptlang.org)** — type safety and enhanced developer experience
 - **[Tailwind CSS v4](https://tailwindcss.com)** — utility-first CSS framework for rapid styling
@@ -133,9 +132,6 @@ Run `just` to see all available commands.
 │   ├── globals.css        # Global styles
 │   ├── layout.tsx         # Root layout
 │   └── page.tsx           # Home page
-├── i18n/                  # Internationalization
-│   ├── request.ts         # i18n request configuration
-│   └── translations/      # Translation files (JSON)
 ├── lib/                   # Shared utilities
 │   ├── cn.ts              # Tailwind class merge utility
 │   └── effect/            # Effect-ts utilities
