@@ -1,6 +1,6 @@
 import "server-only";
 
-import { Next } from "@mcrovero/effect-nextjs";
+import { Next } from "@prb/effect-next/handlers";
 import { Layer, Logger, LogLevel } from "effect";
 
 // Stateless base layer - no runtime management needed

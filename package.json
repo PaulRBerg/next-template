@@ -6,8 +6,7 @@
   "dependencies": {
     "@effect/platform": "^0.93.8",
     "@effect/platform-node": "^0.104.1",
-    "@mcrovero/effect-nextjs": "^0.31.0",
-    "@mcrovero/effect-react-cache": "^0.2.3",
+    "@prb/effect-next": "^1.0.0",
     "client-only": "^0.0.1",
     "effect": "^3.19.15",
     "lucide-react": "^0.563.0",
@@ -31,6 +30,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
     "prettier": "^3.8.1",
+    "typescript": "^5.9.3",
     "ultracite": "^7.1.1",
     "vercel": "^50.9.6"
   },
