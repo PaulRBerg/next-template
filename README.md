@@ -29,7 +29,6 @@ This template provides:
 - **[Prettier](https://prettier.io)** — code formatting for Markdown and YAML files
 - **[Just](https://just.systems)** — command runner for streamlined task automation
 - **[Husky](https://typicode.github.io/husky)** - automated Git hooks for code quality
-- **[Knip](https://github.com/webpro/knip)** — unused code and dependency detection
 
 Optimized for developer productivity and application performance.
 
@@ -140,7 +139,6 @@ Run `just` to see all available commands.
 ├── CLAUDE.md              # AI agent instructions
 ├── biome.jsonc            # Biome configuration
 ├── justfile               # Just command definitions
-├── knip.jsonc             # Knip configuration
 ├── next.config.ts         # Next.js configuration
 ├── package.json           # Package configuration
 ├── postcss.config.mjs     # PostCSS configuration
@@ -159,10 +157,6 @@ Customize the design system by editing:
 ### Linting and Formatting
 
 Code quality is enforced with Biome. See `biome.jsonc` for configuration.
-
-### Dead Code Detection
-
-Knip detects unused dependencies and exports. See `knip.jsonc` for configuration.
 
 ## Deployment
 
