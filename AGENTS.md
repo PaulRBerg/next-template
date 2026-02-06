@@ -89,7 +89,7 @@ nun package-name     # Remove dependency
 - Use named exports: `export function Foo()` instead of `export default`, unless you have to use a default export (e.g.,
   in a `page.tsx` file)
 - Do not use `useMemo` or `useCallback` - React Compiler automatically optimizes re-renders
-- Prefer Next.js `<Image>` over `<img>` for images
+- Use `<SmartImage>` from `@/ui/SmartImage` for all images (wraps `next/image` with auto-inferred `sizes` and alt text)
 - Avoid `Boolean(condition) && <Component />`; use `condition ? <Component /> : null` and raw checks
 
 ### React 19

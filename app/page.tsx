@@ -1,15 +1,15 @@
 import type { LucideIcon } from "lucide-react";
 import { Code, Component, Layers, Package, Palette, Shield, Terminal, Zap } from "lucide-react";
-import Image from "next/image";
 import { Button } from "@/ui/Button";
 import { ContactForm } from "@/ui/ContactForm";
+import { SmartImage } from "@/ui/SmartImage";
 import { SmartLink } from "@/ui/SmartLink";
 import { Timestamp } from "@/ui/Timestamp";
 
 type TechItem = {
-  name: string;
   description: string;
   icon: LucideIcon;
+  name: string;
   url: string;
   version: string;
 };
@@ -76,14 +76,7 @@ const TECH_STACK: TechItem[] = [
 function HeaderSection() {
   return (
     <>
-      <Image
-        alt="Next.js logo"
-        className="h-auto w-45 dark:invert"
-        height={0}
-        priority
-        src="/next.svg"
-        width={0}
-      />
+      <SmartImage alt="Next.js logo" className="h-auto w-45 dark:invert" src="/next.svg" />
       <ol className="list-inside list-decimal text-center font-mono text-sm/6">
         <li className="mb-2 tracking-[-.01em]">
           Get started by editing{" "}
@@ -139,21 +132,13 @@ function InteractiveUISection() {
         {/* CVA Button Variants Demo */}
         <div className="flex flex-col items-center gap-4 sm:flex-row">
           <Button asChild size="md" variant="primary">
-            <SmartLink href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app">
-              <Image
-                alt="Vercel logomark"
-                className="size-5 dark:invert"
-                height={0}
-                src="/vercel.svg"
-                width={0}
-              />
+            <SmartLink href="https://vercel.com/new">
+              <SmartImage alt="Vercel logomark" className="size-5 dark:invert" src="/vercel.svg" />
               Deploy now
             </SmartLink>
           </Button>
           <Button asChild size="md" variant="secondary">
-            <SmartLink href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app">
-              Read our docs
-            </SmartLink>
+            <SmartLink href="https://nextjs.org/docs">Read our docs</SmartLink>
           </Button>
         </div>
 
@@ -189,20 +174,20 @@ function FooterLinks() {
   return (
     <div className="flex flex-wrap items-center justify-center gap-[24px]">
       <Button asChild size="sm" variant="ghost">
-        <SmartLink href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app">
-          <Image alt="File icon" aria-hidden height={16} src="/file.svg" width={16} />
+        <SmartLink href="https://nextjs.org/learn">
+          <SmartImage aria-hidden className="size-4" src="/file.svg" />
           Learn
         </SmartLink>
       </Button>
       <Button asChild size="sm" variant="ghost">
-        <SmartLink href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app">
-          <Image alt="Window icon" aria-hidden height={16} src="/window.svg" width={16} />
+        <SmartLink href="https://vercel.com/templates?framework=next.js">
+          <SmartImage aria-hidden className="size-4" src="/window.svg" />
           Examples
         </SmartLink>
       </Button>
       <Button asChild size="sm" variant="ghost">
-        <SmartLink href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app">
-          <Image alt="Globe icon" aria-hidden height={16} src="/globe.svg" width={16} />
+        <SmartLink href="https://nextjs.org?utm_source=create-next-app">
+          <SmartImage aria-hidden className="size-4" src="/globe.svg" />
           Go to nextjs.org →
         </SmartLink>
       </Button>
