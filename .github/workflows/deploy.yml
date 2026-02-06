@@ -12,28 +12,27 @@ on:
 
 jobs:
   deploy:
-    runs-on: "ubuntu-latest"
+    runs-on: ubuntu-latest
     steps:
-      - name: "Check out the repo"
-        uses: "actions/checkout@v5"
+      - name: Check out the repo
+        uses: actions/checkout@v5
 
-      - name: "Set up devkit"
-        uses: "sablier-labs/devkit/actions/setup@main"
+      - name: Set up devkit
+        uses: sablier-labs/devkit/actions/setup@v1
         with:
-          package-manager: "bun"
+          install-python: false
 
-      - name: "Run code checks"
-        run: "just full-check"
+      - name: Run code checks
+        run: just full-check
 
-      - name: "Deploy to Vercel"
+      - name: Deploy to Vercel
         env:
-          NEXT_TELEMETRY_DISABLED: true
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: "just deploy production"
+        run: just deploy production
 
-      - name: "Add summary"
+      - name: Add summary
         run: | # shell
           echo "## Deploy result" >> $GITHUB_STEP_SUMMARY
           echo "✅ Passed" >> $GITHUB_STEP_SUMMARY

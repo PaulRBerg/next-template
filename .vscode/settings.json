@@ -1,10 +1,18 @@
 {
   "biome.enabled": true,
+  "css.validate": false, // disable because files are TailwindCSS
+  "eslint.useFlatConfig": true,
   "tailwindCSS.classFunctions": ["cva", "cn", "tv", "tw", "tw.*"],
+  "tailwindCSS.validate": true,
   "typescript.experimental.useTsgo": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.biome": "explicit",
+    "source.fixAll.eslint": "explicit",
     "source.organizeImports.biome": "explicit"
+  },
+  "files.associations": {
+    "*.css": "tailwindcss",
+    "*.module.css": "tailwindcss"
   },
   "search.exclude": {
     ".next": true,
