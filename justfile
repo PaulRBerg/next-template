@@ -30,6 +30,32 @@ deploy environment="production":
 alias d := deploy
 
 # ---------------------------------------------------------------------------- #
+#                                    ESLINT                                    #
+# ---------------------------------------------------------------------------- #
+
+# Run ESLint checks
+[group("checks")]
+@eslint-check dir=".":
+    just _run-eslint {{ dir }}
+alias ec := eslint-check
+
+# Run ESLint auto-fixes
+[group("checks")]
+@eslint-write dir=".":
+    just _run-eslint {{ dir }} --fix
+alias ew := eslint-write
+
+# Private ESLint invocation helper
+[private]
+@_run-eslint dir *args:
+    na eslint \
+        --cache \
+        --cache-location node_modules/.cache/eslint/.eslintcache \
+        --concurrency auto \
+        {{ args }} \
+        {{ dir }}
+
+# ---------------------------------------------------------------------------- #
 #                                      APP                                     #
 # ---------------------------------------------------------------------------- #
 
@@ -41,7 +67,7 @@ alias d := deploy
 # Start the Next.js app in dev mode on a random port
 [group("app")]
 @dev *args:
-    na next dev --turbopack {{ args }}
+    na next dev {{ args }}
 
 # Build and start the Next.js app
 [group("app")]

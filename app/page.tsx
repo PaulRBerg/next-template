@@ -87,7 +87,7 @@ function HeaderSection() {
       <ol className="list-inside list-decimal text-center font-mono text-sm/6">
         <li className="mb-2 tracking-[-.01em]">
           Get started by editing{" "}
-          <code className="rounded bg-black/5 px-1 py-0.5 font-mono font-semibold dark:bg-white/6">
+          <code className="rounded-sm bg-black/5 px-1 py-0.5 font-mono font-semibold dark:bg-white/6">
             app/page.tsx
           </code>
           .
@@ -104,12 +104,12 @@ function TechCard({ tech }: { tech: TechItem }) {
       className="group cursor-pointer rounded-lg border border-black/8 bg-white/50 p-4 transition-colors hover:bg-black/5 dark:border-white/[.145] dark:bg-black/20 dark:hover:bg-white/5"
       href={tech.url}
     >
-      <tech.icon className="mb-2 h-6 w-6 text-black dark:text-white" />
+      <tech.icon className="mb-2 size-6 text-black dark:text-white" />
       <div className="font-semibold text-sm tracking-tight">
         {tech.name}
-        {Boolean(tech.version) && (
+        {tech.version ? (
           <span className="ml-1 text-gray-600 dark:text-gray-400">{tech.version}</span>
-        )}
+        ) : null}
       </div>
       <div className="mt-1 text-gray-600 text-xs dark:text-gray-400">{tech.description}</div>
     </SmartLink>
@@ -142,7 +142,7 @@ function InteractiveUISection() {
             <SmartLink href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app">
               <Image
                 alt="Vercel logomark"
-                className="h-5 w-5 dark:invert"
+                className="size-5 dark:invert"
                 height={0}
                 src="/vercel.svg"
                 width={0}
@@ -212,7 +212,7 @@ function FooterLinks() {
 
 export default function Home() {
   return (
-    <div className="grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 font-sans sm:p-20">
+    <div className="grid min-h-screen grid-rows-[20px_1fr_20px] place-items-center gap-16 p-8 pb-20 font-sans sm:p-20">
       <main className="row-start-2 flex flex-col items-center gap-8">
         <HeaderSection />
 
