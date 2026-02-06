@@ -18,7 +18,6 @@ A modern Next.js template for building production-ready web applications.
 This template provides:
 
 - **[`AGENTS.md`](https://modelcontextprotocol.io/)** — Context instructions for AI agents like Claude Code
-- **[MCP](https://modelcontextprotocol.io/)** — `.mcp.json` file with MCP server configuration
 - **[Next.js v16](https://nextjs.org)** - with App Router and React v19
 - **[Effect-ts](https://effect.website)** — type-safe functional programming and async effects
 - **[Vercel](https://vercel.com/guides/how-can-i-use-github-actions-with-vercel)** - for hosting and CI deployments
