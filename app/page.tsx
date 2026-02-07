@@ -77,7 +77,7 @@ const TECH_STACK: TechItem[] = [
 function HeaderSection() {
   return (
     <>
-      <SmartImage alt="Next.js logo" className="h-auto w-45 dark:invert" src="/next.svg" />
+      <SmartImage alt="Next.js logo" className="aspect-[394/80] w-45 dark:invert" priority src="/next.svg" />
       <ol className="list-inside list-decimal text-center font-mono text-sm/6">
         <li className="mb-2 tracking-[-.01em]">
           Get started by editing{" "}

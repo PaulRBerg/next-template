@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* tw-next-image injects these wrapper classes at runtime; Tailwind won't detect them automatically */
+@source inline("relative inline-block object-contain");
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
