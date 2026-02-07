@@ -17,18 +17,19 @@ A modern Next.js template for building production-ready web applications.
 
 This template provides:
 
-- **[`AGENTS.md`](https://modelcontextprotocol.io/)** — Context instructions for AI agents like Claude Code
-- **[Next.js v16](https://nextjs.org)** - with App Router and React v19
+- **[`AGENTS.md`](./AGENTS.md)** — Context instructions for AI agents like Claude Code
+- **[Next.js v16](https://nextjs.org)** — App Router, React v19, and React Compiler
 - **[Effect-ts](https://effect.website)** — type-safe functional programming and async effects
-- **[Vercel](https://vercel.com/guides/how-can-i-use-github-actions-with-vercel)** - for hosting and CI deployments
+- **[Vercel](https://vercel.com/guides/how-can-i-use-github-actions-with-vercel)** — hosting and CI deployments
 - **[TypeScript v5](https://typescriptlang.org)** — type safety and enhanced developer experience
 - **[Tailwind CSS v4](https://tailwindcss.com)** — utility-first CSS framework for rapid styling
 - **[Base UI](https://base-ui.com)** — headless, accessible React components
 - **[Bun](https://bun.sh)** — fast package manager and JavaScript runtime
-- **[BiomeJS](https://biomejs.dev)** — lightning-fast linting and formatting for TypeScript and JSON
+- **[BiomeJS](https://biomejs.dev)** — linting and formatting for TypeScript, JSON, and CSS
+- **[ESLint](https://eslint.org)** — Tailwind class validation and React hooks rules
 - **[Prettier](https://prettier.io)** — code formatting for Markdown and YAML files
 - **[Just](https://just.systems)** — command runner for streamlined task automation
-- **[Husky](https://typicode.github.io/husky)** - automated Git hooks for code quality
+- **[Husky](https://typicode.github.io/husky)** — automated Git hooks with lint-staged
 
 Optimized for developer productivity and application performance.
 
@@ -107,18 +108,21 @@ Make sure to run `bun install` first!
 | `just clean`  | Clean build artifacts    |
 | `just deploy` | Deploy to Vercel         |
 
-### Code Linting
+### Code Quality
 
-| Command             | Description            |
-| ------------------- | ---------------------- |
-| `just biome-check`  | Check code with Biome  |
-| `just biome-format` | Format code with Biome |
-| `just full-check`   | Run all quality checks |
-| `just full-write`   | Fix all quality issues    |
+| Command              | Description                                  |
+| -------------------- | -------------------------------------------- |
+| `just biome-check`   | Check code with Biome (lint + format)        |
+| `just biome-write`   | Auto-fix Biome issues                        |
+| `just eslint-check`  | Check Tailwind classes and React hooks rules |
+| `just eslint-write`  | Auto-fix ESLint issues                       |
+| `just type-check`    | Type check with tsgo (falls back to tsc)     |
+| `just full-check`    | Run all quality checks                       |
+| `just full-write`    | Fix all quality issues                       |
 
 ### Other Commands
 
-Run `just` to see all available commands.
+Run `just` to see all available commands, including `prettier-*`, `mdformat-*`, and `knip-*`.
 
 ## Project Structure
 
@@ -127,17 +131,21 @@ Run `just` to see all available commands.
 ├── .husky/                # Git hooks configuration
 ├── app/                   # Next.js App Router
 │   ├── api/health/        # Health check API route
-│   ├── favicon.ico        # Favicon
-│   ├── globals.css        # Global styles
+│   ├── globals.css        # Global styles and Tailwind directives
 │   ├── layout.tsx         # Root layout
 │   └── page.tsx           # Home page
 ├── lib/                   # Shared utilities
 │   ├── cn.ts              # Tailwind class merge utility
+│   ├── regex.ts           # Regex utilities
 │   └── effect/            # Effect-ts utilities
 ├── public/                # Static files
 ├── ui/                    # UI components
-├── CLAUDE.md              # AI agent instructions
+│   ├── Button.tsx         # Button component
+│   ├── SmartImage.tsx     # Enhanced next/image wrapper
+│   └── SmartLink.tsx      # Enhanced next/link wrapper
+├── AGENTS.md              # AI agent instructions (CLAUDE.md → symlink)
 ├── biome.jsonc            # Biome configuration
+├── eslint.config.mts      # ESLint configuration (Tailwind + React hooks)
 ├── justfile               # Just command definitions
 ├── next.config.ts         # Next.js configuration
 ├── package.json           # Package configuration
@@ -156,7 +164,8 @@ Customize the design system by editing:
 
 ### Linting and Formatting
 
-Code quality is enforced with Biome. See `biome.jsonc` for configuration.
+Code quality is enforced with Biome (`biome.jsonc`) and ESLint (`eslint.config.mts`). ESLint handles Tailwind class
+validation and React hooks rules that Biome doesn't support yet.
 
 ## Deployment
 

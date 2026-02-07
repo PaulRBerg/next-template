@@ -31,7 +31,7 @@ export default function RootLayout({
           <Script
             crossOrigin="anonymous"
             src="//unpkg.com/react-grab/dist/index.global.js"
-            strategy="beforeInteractive"
+            strategy="lazyOnload"
           />
         ) : null}
       </body>
