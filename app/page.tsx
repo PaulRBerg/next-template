@@ -1,7 +1,8 @@
 import type { LucideIcon } from "lucide-react";
-import { Code, Component, Layers, Package, Palette, Shield, Terminal, Zap } from "lucide-react";
+import { Blocks, Code, Component, Layers, Package, Palette, Shield, Zap } from "lucide-react";
 import { Button } from "@/ui/Button";
 import { ContactForm } from "@/ui/ContactForm";
+import { DemoDialog } from "@/ui/DemoDialog";
 import { SmartImage } from "@/ui/SmartImage";
 import { SmartLink } from "@/ui/SmartLink";
 import { Timestamp } from "@/ui/Timestamp";
@@ -65,11 +66,11 @@ const TECH_STACK: TechItem[] = [
     version: "",
   },
   {
-    description: "Task runner",
-    icon: Terminal,
-    name: "Just",
-    url: "https://just.systems",
-    version: "",
+    description: "Headless components",
+    icon: Blocks,
+    name: "Base UI",
+    url: "https://base-ui.com",
+    version: "v1",
   },
 ];
 
@@ -125,11 +126,9 @@ function TechStackSection() {
 function InteractiveUISection() {
   return (
     <div className="flex flex-col gap-4">
-      <h2 className="text-center font-semibold text-lg sm:text-left">
-        Interactive UI with Tailwind Variants
-      </h2>
+      <h2 className="text-center font-semibold text-lg sm:text-left">Interactive Components</h2>
       <div className="flex flex-col gap-4">
-        {/* CVA Button Variants Demo */}
+        {/* Button Variants */}
         <div className="flex flex-col items-center gap-4 sm:flex-row">
           <Button asChild size="md" variant="primary">
             <SmartLink href="https://vercel.com/new">
@@ -142,7 +141,6 @@ function InteractiveUISection() {
           </Button>
         </div>
 
-        {/* Additional CVA Button Examples */}
         <div className="flex flex-wrap items-center gap-2">
           <Button size="sm" variant="ghost">
             Ghost Button
@@ -153,6 +151,12 @@ function InteractiveUISection() {
           <Button size="lg" variant="secondary">
             Large Secondary
           </Button>
+        </div>
+
+        {/* Headless UI with Base UI */}
+        <div className="border-black/8 border-t pt-4 dark:border-white/[.145]">
+          <p className="mb-3 text-gray-600 text-xs dark:text-gray-400">Headless UI with Base UI</p>
+          <DemoDialog />
         </div>
       </div>
     </div>
@@ -170,27 +174,23 @@ function FormSection() {
   );
 }
 
+const FOOTER_LINKS = [
+  { href: "https://nextjs.org/learn", icon: "/file.svg", label: "Learn" },
+  { href: "https://vercel.com/templates?framework=next.js", icon: "/window.svg", label: "Examples" },
+  { href: "https://nextjs.org?utm_source=create-next-app", icon: "/globe.svg", label: "Go to nextjs.org \u2192" },
+];
+
 function FooterLinks() {
   return (
-    <div className="flex flex-wrap items-center justify-center gap-[24px]">
-      <Button asChild size="sm" variant="ghost">
-        <SmartLink href="https://nextjs.org/learn">
-          <SmartImage aria-hidden className="size-4" src="/file.svg" />
-          Learn
-        </SmartLink>
-      </Button>
-      <Button asChild size="sm" variant="ghost">
-        <SmartLink href="https://vercel.com/templates?framework=next.js">
-          <SmartImage aria-hidden className="size-4" src="/window.svg" />
-          Examples
-        </SmartLink>
-      </Button>
-      <Button asChild size="sm" variant="ghost">
-        <SmartLink href="https://nextjs.org?utm_source=create-next-app">
-          <SmartImage aria-hidden className="size-4" src="/globe.svg" />
-          Go to nextjs.org →
-        </SmartLink>
-      </Button>
+    <div className="flex flex-wrap items-center justify-center gap-6">
+      {FOOTER_LINKS.map((link) => (
+        <Button key={link.href} asChild size="sm" variant="ghost">
+          <SmartLink href={link.href}>
+            <SmartImage aria-hidden className="size-4" src={link.icon} />
+            {link.label}
+          </SmartLink>
+        </Button>
+      ))}
     </div>
   );
 }

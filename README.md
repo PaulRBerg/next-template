@@ -23,6 +23,7 @@ This template provides:
 - **[Vercel](https://vercel.com/guides/how-can-i-use-github-actions-with-vercel)** - for hosting and CI deployments
 - **[TypeScript v5](https://typescriptlang.org)** — type safety and enhanced developer experience
 - **[Tailwind CSS v4](https://tailwindcss.com)** — utility-first CSS framework for rapid styling
+- **[Base UI](https://base-ui.com)** — headless, accessible React components
 - **[Bun](https://bun.sh)** — fast package manager and JavaScript runtime
 - **[BiomeJS](https://biomejs.dev)** — lightning-fast linting and formatting for TypeScript and JSON
 - **[Prettier](https://prettier.io)** — code formatting for Markdown and YAML files

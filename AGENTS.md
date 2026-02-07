@@ -140,6 +140,14 @@ Duration.toMillis("5 minutes"); // 300000
 - Consistent spacing scale
 - Use `lucide-react` for icons instead of hard-coding SVGs
 
+### Base UI
+
+- Use [Base UI](https://base-ui.com) (`@base-ui/react`) for headless, accessible UI primitives
+- Import individual components: `import { Dialog } from "@base-ui/react/dialog"`
+- Style parts directly with Tailwind classes (e.g., `<Dialog.Popup className="...">`)
+- Use `data-[starting-style]` / `data-[ending-style]` attributes for enter/exit animations
+- Base UI components require `"use client"` since they manage interactive state
+
 ## Troubleshooting
 
 Use Next DevTools MCP server.

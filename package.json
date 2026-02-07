@@ -4,6 +4,7 @@
   "private": true,
   "version": "1.0.0",
   "dependencies": {
+    "@base-ui/react": "^1.1.0",
     "@effect/platform": "^0.94.3",
     "@effect/platform-node": "^0.104.1",
     "@prb/effect-next": "^1.0.0",
