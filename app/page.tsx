@@ -177,7 +177,7 @@ function FormSection() {
 const FOOTER_LINKS = [
   { href: "https://nextjs.org/learn", icon: "/file.svg", label: "Learn" },
   { href: "https://vercel.com/templates?framework=next.js", icon: "/window.svg", label: "Examples" },
-  { href: "https://nextjs.org?utm_source=create-next-app", icon: "/globe.svg", label: "Go to nextjs.org \u2192" },
+  { href: "https://nextjs.org", icon: "/globe.svg", label: "Go to nextjs.org \u2192" },
 ];
 
 function FooterLinks() {
