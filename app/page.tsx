@@ -77,7 +77,12 @@ const TECH_STACK: TechItem[] = [
 function HeaderSection() {
   return (
     <>
-      <SmartImage alt="Next.js logo" className="aspect-[394/80] w-45 dark:invert" priority src="/next.svg" />
+      <SmartImage
+        alt="Next.js logo"
+        className="aspect-[394/80] w-45 dark:invert"
+        priority
+        src="/next.svg"
+      />
       <ol className="list-inside list-decimal text-center font-mono text-sm/6">
         <li className="mb-2 tracking-[-.01em]">
           Get started by editing{" "}
@@ -176,7 +181,11 @@ function FormSection() {
 
 const FOOTER_LINKS = [
   { href: "https://nextjs.org/learn", icon: "/file.svg", label: "Learn" },
-  { href: "https://vercel.com/templates?framework=next.js", icon: "/window.svg", label: "Examples" },
+  {
+    href: "https://vercel.com/templates?framework=next.js",
+    icon: "/window.svg",
+    label: "Examples",
+  },
   { href: "https://nextjs.org", icon: "/globe.svg", label: "Go to nextjs.org \u2192" },
 ];
 
@@ -184,7 +193,7 @@ function FooterLinks() {
   return (
     <div className="flex flex-wrap items-center justify-center gap-6">
       {FOOTER_LINKS.map((link) => (
-        <Button key={link.href} asChild size="sm" variant="ghost">
+        <Button asChild key={link.href} size="sm" variant="ghost">
           <SmartLink href={link.href}>
             <SmartImage aria-hidden className="size-4" src={link.icon} />
             {link.label}

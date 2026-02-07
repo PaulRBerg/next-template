@@ -23,6 +23,7 @@
       },
       "devDependencies": {
         "@biomejs/biome": "^2.3.14",
+        "@mcrovero/effect-react-cache": "^0.2.3",
         "@sablier/devkit": "^1.12.1",
         "@tailwindcss/postcss": "^4.1.18",
         "@types/node": "^25.2.1",
@@ -293,6 +294,8 @@
     "@jridgewell/trace-mapping": ["@jridgewell/trace-mapping@0.3.30", "", { "dependencies": { "@jridgewell/resolve-uri": "^3.1.0", "@jridgewell/sourcemap-codec": "^1.4.14" } }, "sha512-GQ7Nw5G2lTu/BtHTKfXhKHok2WGetd4XYcVKGx00SjAk8GMwgJM3zr6zORiPGuOE+/vkc90KtTosSSvaCjKb2Q=="],
 
     "@mapbox/node-pre-gyp": ["@mapbox/node-pre-gyp@2.0.0", "", { "dependencies": { "consola": "^3.2.3", "detect-libc": "^2.0.0", "https-proxy-agent": "^7.0.5", "node-fetch": "^2.6.7", "nopt": "^8.0.0", "semver": "^7.5.3", "tar": "^7.4.0" }, "bin": { "node-pre-gyp": "bin/node-pre-gyp" } }, "sha512-llMXd39jtP0HpQLVI37Bf1m2ADlEb35GYSh1SDSLsBhR+5iCxiNGlT31yqbNtVHygHAtMy6dWFERpU2JgufhPg=="],
+
+    "@mcrovero/effect-react-cache": ["@mcrovero/effect-react-cache@0.2.3", "", { "peerDependencies": { "effect": "^3.0.0", "react": "^19.0.0" } }, "sha512-4NrTlcDZva8yd1NQg94eGxjL6Cq7ROENtmJAzlgUc7MLwNUoC6UlWPKwlrmTARPA3pOqOnFa4MucvgTMECZx6A=="],
 
     "@msgpackr-extract/msgpackr-extract-darwin-arm64": ["@msgpackr-extract/msgpackr-extract-darwin-arm64@3.0.3", "", { "os": "darwin", "cpu": "arm64" }, "sha512-QZHtlVgbAdy2zAqNA9Gu1UpIuI8Xvsd1v8ic6B2pZmeFnFcMWiPLfWXh7TVw4eGEZ/C9TH281KwhVoeQUKbyjw=="],
 

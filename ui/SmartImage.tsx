@@ -19,7 +19,12 @@ function inferAltFromSrc(src: SmartImageSrc): string | undefined {
   let resolved: string | undefined;
   if (typeof src === "string") {
     resolved = src;
-  } else if (typeof src === "object" && src !== null && "src" in src && typeof src.src === "string") {
+  } else if (
+    typeof src === "object" &&
+    src !== null &&
+    "src" in src &&
+    typeof src.src === "string"
+  ) {
     resolved = src.src;
   }
 

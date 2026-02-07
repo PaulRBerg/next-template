@@ -35,7 +35,7 @@ export function DemoDialog() {
 
           <ul className="mt-4 space-y-2 text-sm">
             {FEATURES.map((feature) => (
-              <li key={feature} className="flex items-start gap-2">
+              <li className="flex items-start gap-2" key={feature}>
                 <span className="mt-1 block size-1.5 shrink-0 rounded-full bg-foreground" />
                 {feature}
               </li>
