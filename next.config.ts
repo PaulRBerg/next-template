@@ -3,15 +3,19 @@ import type { NextConfig } from "next";
 const isDevelopment = process.env.NODE_ENV === "development";
 
 const nextConfig: NextConfig = {
+  compress: true,
+  // ISR cache duration (stale-while-revalidate)
+  expireTime: 3600, // 1 hour
+  poweredByHeader: false,
+  reactCompiler: true,
+  reactStrictMode: true,
+  typedRoutes: true,
   compiler: {
     removeConsole: !isDevelopment,
   },
-  compress: true,
   experimental: {
     turbopackFileSystemCacheForBuild: true,
   },
-  // ISR cache duration (stale-while-revalidate)
-  expireTime: 3600, // 1 hour
   // Image optimization
   images: {
     formats: ["image/webp"],
@@ -32,10 +36,6 @@ const nextConfig: NextConfig = {
       hmrRefreshes: isDevelopment,
     },
   },
-  poweredByHeader: false,
-  reactCompiler: true,
-  reactStrictMode: true,
-  typedRoutes: true,
 };
 
 export default nextConfig;

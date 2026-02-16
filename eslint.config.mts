@@ -16,10 +16,10 @@ import reactHooks from "eslint-plugin-react-hooks";
 const baseLanguageOptions: Linter.LanguageOptions = {
   ecmaVersion: "latest",
   parser: tsParser,
+  sourceType: "module",
   parserOptions: {
     ecmaFeatures: { jsx: true },
   },
-  sourceType: "module",
 };
 
 const tailwindAttributes = [...getDefaultAttributes(), ".*Cn$"];
@@ -51,10 +51,10 @@ const config: Linter.Config[] = [
     files: ["**/*.tsx", "**/*.styles.ts"],
     languageOptions: baseLanguageOptions,
     name: "tailwind",
+    rules: tailwindRules,
     plugins: {
       "better-tailwindcss": betterTailwindcss,
     },
-    rules: tailwindRules,
     settings: {
       "better-tailwindcss": {
         attributes: tailwindAttributes,
