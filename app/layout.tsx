@@ -30,7 +30,7 @@ export default function RootLayout({
         {process.env.NODE_ENV === "development" ? (
           <Script
             crossOrigin="anonymous"
-            src="//unpkg.com/react-grab/dist/index.global.js"
+            src="https://unpkg.com/react-grab/dist/index.global.js"
             strategy="lazyOnload"
           />
         ) : null}
