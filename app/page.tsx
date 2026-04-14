@@ -80,7 +80,7 @@ function HeaderSection() {
       <SmartImage
         alt="Next.js logo"
         className="aspect-394/80 w-45 dark:invert"
-        priority
+        preload
         src="/next.svg"
       />
       <ol className="list-inside list-decimal text-center font-mono text-sm/6">
