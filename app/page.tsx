@@ -79,7 +79,7 @@ function HeaderSection() {
     <>
       <SmartImage
         alt="Next.js logo"
-        className="aspect-[394/80] w-45 dark:invert"
+        className="aspect-394/80 w-45 dark:invert"
         priority
         src="/next.svg"
       />
