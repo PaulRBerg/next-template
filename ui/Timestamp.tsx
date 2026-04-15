@@ -18,7 +18,7 @@ export function Timestamp({
   const formatted = `${year}-${month}-${day}`;
 
   return (
-    <span className="text-gray-500 text-xs dark:text-gray-400">
+    <span className="text-xs text-gray-500 dark:text-gray-400">
       {label}: {formatted}
     </span>
   );

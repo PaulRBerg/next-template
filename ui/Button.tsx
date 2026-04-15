@@ -5,7 +5,13 @@ import { tv } from "tailwind-variants";
 import { cn } from "@/lib/cn";
 
 const buttonVariants = tv({
-  base: "inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-full font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  base: `
+    inline-flex cursor-pointer items-center justify-center gap-2 rounded-full font-medium
+    whitespace-nowrap transition-colors
+    focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2
+    focus-visible:outline-none
+    disabled:pointer-events-none disabled:opacity-50
+  `,
   defaultVariants: {
     size: "md",
     variant: "primary",
@@ -19,8 +25,12 @@ const buttonVariants = tv({
     variant: {
       ghost: "hover:bg-gray-100 dark:hover:bg-gray-800",
       primary: "bg-foreground text-background hover:bg-neutral-700 dark:hover:bg-neutral-300",
-      secondary:
-        "border border-black/8 border-solid hover:border-transparent hover:bg-neutral-100 dark:border-white/[.145] dark:hover:bg-neutral-900",
+      secondary: `
+          border border-solid border-black/8
+          hover:border-transparent hover:bg-neutral-100
+          dark:border-white/[.145]
+          dark:hover:bg-neutral-900
+        `,
     },
   },
 });

@@ -100,17 +100,22 @@ function HeaderSection() {
 function TechCard({ tech }: { tech: TechItem }) {
   return (
     <SmartLink
-      className="group cursor-pointer rounded-lg border border-black/8 bg-white/50 p-4 transition-colors hover:bg-black/5 dark:border-white/[.145] dark:bg-black/20 dark:hover:bg-white/5"
+      className="
+        group cursor-pointer rounded-lg border border-black/8 bg-white/50 p-4 transition-colors
+        hover:bg-black/5
+        dark:border-white/[.145] dark:bg-black/20
+        dark:hover:bg-white/5
+      "
       href={tech.url}
     >
       <tech.icon className="mb-2 size-6 text-black dark:text-white" />
-      <div className="font-semibold text-sm tracking-tight">
+      <div className="text-sm font-semibold tracking-tight">
         {tech.name}
         {tech.version ? (
           <span className="ml-1 text-gray-600 dark:text-gray-400">{tech.version}</span>
         ) : null}
       </div>
-      <div className="mt-1 text-gray-600 text-xs dark:text-gray-400">{tech.description}</div>
+      <div className="mt-1 text-xs text-gray-600 dark:text-gray-400">{tech.description}</div>
     </SmartLink>
   );
 }
@@ -118,7 +123,7 @@ function TechCard({ tech }: { tech: TechItem }) {
 function TechStackSection() {
   return (
     <div className="flex flex-col gap-4">
-      <h2 className="text-center font-semibold text-lg sm:text-left">Built with Modern Tools</h2>
+      <h2 className="text-center text-lg font-semibold sm:text-left">Built with Modern Tools</h2>
       <div className="grid grid-cols-2 gap-3">
         {TECH_STACK.map((tech) => (
           <TechCard key={tech.name} tech={tech} />
@@ -131,7 +136,7 @@ function TechStackSection() {
 function InteractiveUISection() {
   return (
     <div className="flex flex-col gap-4">
-      <h2 className="text-center font-semibold text-lg sm:text-left">Interactive Components</h2>
+      <h2 className="text-center text-lg font-semibold sm:text-left">Interactive Components</h2>
       <div className="flex flex-col gap-4">
         {/* Button Variants */}
         <div className="flex flex-col items-center gap-4 sm:flex-row">
@@ -159,8 +164,8 @@ function InteractiveUISection() {
         </div>
 
         {/* Headless UI with Base UI */}
-        <div className="border-black/8 border-t pt-4 dark:border-white/[.145]">
-          <p className="mb-3 text-gray-600 text-xs dark:text-gray-400">Headless UI with Base UI</p>
+        <div className="border-t border-black/8 pt-4 dark:border-white/[.145]">
+          <p className="mb-3 text-xs text-gray-600 dark:text-gray-400">Headless UI with Base UI</p>
           <DemoDialog />
         </div>
       </div>
@@ -171,7 +176,7 @@ function InteractiveUISection() {
 function FormSection() {
   return (
     <div className="flex flex-col gap-4">
-      <h2 className="text-center font-semibold text-lg sm:text-left">
+      <h2 className="text-center text-lg font-semibold sm:text-left">
         Form Validation with Effect Schema
       </h2>
       <ContactForm />
@@ -206,7 +211,12 @@ function FooterLinks() {
 
 export default function Home() {
   return (
-    <div className="grid min-h-screen grid-rows-[20px_1fr_20px] place-items-center gap-16 p-8 pb-20 font-sans sm:p-20">
+    <div
+      className="
+      grid min-h-screen grid-rows-[20px_1fr_20px] place-items-center gap-16 p-8 pb-20 font-sans
+      sm:p-20
+    "
+    >
       <main className="row-start-2 flex flex-col items-center gap-8">
         <HeaderSection />
 

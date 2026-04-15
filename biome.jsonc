@@ -16,8 +16,12 @@
         "noImportantStyles": "off",
         "noStaticOnlyClass": "off"
       },
-      "style": {
-        "useConsistentTypeDefinitions": "off"
+      "nursery": {
+        // Tailwind class ordering is handled by ESLint (better-tailwindcss/enforce-consistent-class-order).
+        // Biome's useSortedClasses lacks a Tailwind v4 sort preset and sorts text-* utilities alphabetically,
+        // interleaving font-size (text-sm) with color (text-red-500) utilities.
+        // Tracked upstream: https://github.com/biomejs/biome/issues/1274
+        "useSortedClasses": "off"
       },
       "suspicious": {
         "noArrayIndexKey": "off",

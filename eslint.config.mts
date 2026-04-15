@@ -10,7 +10,7 @@
 import tsParser from "@typescript-eslint/parser";
 import type { ESLint, Linter } from "eslint";
 import betterTailwindcss from "eslint-plugin-better-tailwindcss";
-import { getDefaultAttributes } from "eslint-plugin-better-tailwindcss/api/defaults";
+import { getDefaultSelectors } from "eslint-plugin-better-tailwindcss/api/defaults";
 import reactHooks from "eslint-plugin-react-hooks";
 
 const baseLanguageOptions: Linter.LanguageOptions = {
@@ -22,17 +22,22 @@ const baseLanguageOptions: Linter.LanguageOptions = {
   },
 };
 
-const tailwindAttributes = [...getDefaultAttributes(), ".*Cn$"];
+const tailwindSelectors = [
+  ...getDefaultSelectors(),
+  { kind: "attribute" as const, name: ".*Cn$" },
+  { kind: "attribute" as const, name: ".*ClassName$" },
+];
 
 /**
- * Make sure that these rules do not conflict with Biome's class sorting rules.
+ * ESLint owns all Tailwind CSS semantics: class ordering, canonicalization, and correctness.
+ * Biome's useSortedClasses is disabled locally because it lacks a Tailwind v4 sort preset.
  * @see {@link file://./biome.jsonc}
- * @see https://biomejs.dev/linter/rules/use-sorted-classes/
+ * @see https://github.com/schoero/eslint-plugin-better-tailwindcss
  */
 const tailwindRules: Linter.RulesRecord = {
   // Stylistic
   "better-tailwindcss/enforce-canonical-classes": "error",
-  "better-tailwindcss/enforce-consistent-class-order": "off", // handled by Biome
+  "better-tailwindcss/enforce-consistent-class-order": "error",
   "better-tailwindcss/enforce-shorthand-classes": "error",
   // Correctness
   "better-tailwindcss/no-conflicting-classes": "error",
@@ -40,6 +45,12 @@ const tailwindRules: Linter.RulesRecord = {
   "better-tailwindcss/no-duplicate-classes": "error",
   "better-tailwindcss/no-unknown-classes": ["error", { detectComponentClasses: true }],
   "better-tailwindcss/no-unnecessary-whitespace": "error",
+  // Options mirror Biome formatting
+  // See https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/enforce-consistent-line-wrapping.md
+  "better-tailwindcss/enforce-consistent-line-wrapping": [
+    "error",
+    { group: "newLine", indent: 2, preferSingleLine: true, printWidth: 100, strictness: "loose" },
+  ],
 };
 
 const config: Linter.Config[] = [
@@ -57,8 +68,8 @@ const config: Linter.Config[] = [
     },
     settings: {
       "better-tailwindcss": {
-        attributes: tailwindAttributes,
         entryPoint: "app/globals.css",
+        selectors: tailwindSelectors,
       },
     },
   },
