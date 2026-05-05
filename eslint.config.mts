@@ -38,6 +38,9 @@ const tailwindRules: Linter.RulesRecord = {
   // Stylistic
   "better-tailwindcss/enforce-canonical-classes": "error",
   "better-tailwindcss/enforce-consistent-class-order": "error",
+  // Disabled: multi-line class strings introduce literal newlines/whitespace into rendered
+  // className, causing SSR/CSR hydration mismatches.
+  "better-tailwindcss/enforce-consistent-line-wrapping": "off",
   "better-tailwindcss/enforce-shorthand-classes": "error",
   // Correctness
   "better-tailwindcss/no-conflicting-classes": "error",
@@ -45,12 +48,6 @@ const tailwindRules: Linter.RulesRecord = {
   "better-tailwindcss/no-duplicate-classes": "error",
   "better-tailwindcss/no-unknown-classes": ["error", { detectComponentClasses: true }],
   "better-tailwindcss/no-unnecessary-whitespace": "error",
-  // Options mirror Biome formatting
-  // See https://github.com/schoero/eslint-plugin-better-tailwindcss/blob/main/docs/rules/enforce-consistent-line-wrapping.md
-  "better-tailwindcss/enforce-consistent-line-wrapping": [
-    "error",
-    { group: "newLine", indent: 2, preferSingleLine: true, printWidth: 100, strictness: "loose" },
-  ],
 };
 
 const config: Linter.Config[] = [
