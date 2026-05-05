@@ -24,7 +24,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    // `suppressHydrationWarning` only silences mismatches one level deep on <html>, so it covers
+    // attributes injected by browser extensions (e.g. Grammarly, dark-mode toggles) without hiding
+    // hydration errors from our own components.
+    <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
         {process.env.NODE_ENV === "development" ? (
