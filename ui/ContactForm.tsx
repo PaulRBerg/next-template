@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
+import { cn } from "@/lib/cn";
 import { subscribe } from "@/lib/effect/actions";
 import { Button } from "./Button";
 
@@ -12,10 +13,10 @@ export function ContactForm() {
   if (state?.success) {
     return (
       <div
-        className="
-        rounded-lg border border-green-200 bg-green-50 p-4 text-center
-        dark:border-green-800 dark:bg-green-950
-      "
+        className={cn(
+          "rounded-lg border border-green-200 bg-green-50 p-4 text-center",
+          "dark:border-green-800 dark:bg-green-950",
+        )}
       >
         <p className="text-sm text-green-800 dark:text-green-200">
           ✅ Thanks for subscribing! We'll keep you updated.
@@ -38,11 +39,11 @@ export function ContactForm() {
 
       <div className="space-y-2">
         <input
-          className="
-            w-full rounded-lg border border-gray-300 px-3 py-2 text-sm
-            focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none
-            dark:border-gray-600 dark:bg-gray-800
-          "
+          className={cn(
+            "w-full rounded-lg border border-gray-300 px-3 py-2 text-sm",
+            "focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none",
+            "dark:border-gray-600 dark:bg-gray-800",
+          )}
           name="email"
           placeholder="your.email@example.com"
           type="email"

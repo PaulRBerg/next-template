@@ -1,5 +1,6 @@
 import type { LucideIcon } from "lucide-react";
 import { Blocks, Code, Component, Layers, Package, Palette, Shield, Zap } from "lucide-react";
+import { cn } from "@/lib/cn";
 import { Button } from "@/ui/Button";
 import { ContactForm } from "@/ui/ContactForm";
 import { DemoDialog } from "@/ui/DemoDialog";
@@ -100,12 +101,12 @@ function HeaderSection() {
 function TechCard({ tech }: { tech: TechItem }) {
   return (
     <SmartLink
-      className="
-        group cursor-pointer rounded-lg border border-black/8 bg-white/50 p-4 transition-colors
-        hover:bg-black/5
-        dark:border-white/[.145] dark:bg-black/20
-        dark:hover:bg-white/5
-      "
+      className={cn(
+        "group cursor-pointer rounded-lg border border-black/8 bg-white/50 p-4 transition-colors",
+        "hover:bg-black/5",
+        "dark:border-white/[.145] dark:bg-black/20",
+        "dark:hover:bg-white/5",
+      )}
       href={tech.url}
     >
       <tech.icon className="mb-2 size-6 text-black dark:text-white" />
@@ -212,10 +213,10 @@ function FooterLinks() {
 export default function Home() {
   return (
     <div
-      className="
-      grid min-h-screen grid-rows-[20px_1fr_20px] place-items-center gap-16 p-8 pb-20 font-sans
-      sm:p-20
-    "
+      className={cn(
+        "grid min-h-screen grid-rows-[20px_1fr_20px] place-items-center gap-16 p-8 pb-20 font-sans",
+        "sm:p-20",
+      )}
     >
       <main className="row-start-2 flex flex-col items-center gap-8">
         <HeaderSection />
