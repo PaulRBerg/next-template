@@ -59,11 +59,19 @@ export function SmartImage<
   const inferredSizes = sizes ?? inferImageSizes({ className, ratio, src, style });
   const isAriaHidden = props["aria-hidden"] === true || props["aria-hidden"] === "true";
   const resolvedAlt = alt ?? (isAriaHidden ? "" : inferAltFromSrc(src)) ?? "";
+  // The inner `<Image fill>` is absolutely positioned, so the wrapper needs an
+  // intrinsic height. `tw-next-image` doesn't propagate `ratio` to the wrapper,
+  // so apply it as an inline `aspect-ratio` unless the caller already set one.
+  const resolvedStyle =
+    ratio !== undefined && style?.aspectRatio === undefined
+      ? ({ aspectRatio: ratio, ...style } as S)
+      : style;
 
   return SmartImageImpl({
     ...props,
     alt: resolvedAlt,
     sizes: inferredSizes ?? "100vw",
+    style: resolvedStyle,
   } as typeof props);
 }
 
