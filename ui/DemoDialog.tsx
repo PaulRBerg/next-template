@@ -23,7 +23,7 @@ export function DemoDialog() {
           "focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2",
           "focus-visible:outline-none",
           "dark:border-white/[.145]",
-          "dark:hover:bg-neutral-900",
+          "dark:hover:bg-neutral-900"
         )}
       >
         <Info className="size-4" />
@@ -35,7 +35,7 @@ export function DemoDialog() {
           className={cn(
             "fixed inset-0 bg-black/50 transition-opacity",
             "data-ending-style:opacity-0",
-            "data-starting-style:opacity-0",
+            "data-starting-style:opacity-0"
           )}
         />
         <Dialog.Popup
@@ -44,7 +44,7 @@ export function DemoDialog() {
             "border-black/8 bg-white p-6 shadow-xl transition-all",
             "data-ending-style:scale-95 data-ending-style:opacity-0",
             "data-starting-style:scale-95 data-starting-style:opacity-0",
-            "dark:border-white/[.145] dark:bg-neutral-900",
+            "dark:border-white/[.145] dark:bg-neutral-900"
           )}
         >
           <div className="flex items-start justify-between">
@@ -54,7 +54,7 @@ export function DemoDialog() {
                 "inline-flex size-8 cursor-pointer items-center justify-center rounded-full",
                 "transition-colors",
                 "hover:bg-gray-100",
-                "dark:hover:bg-gray-800",
+                "dark:hover:bg-gray-800"
               )}
             >
               <X className="size-4" />
@@ -80,7 +80,7 @@ export function DemoDialog() {
                 "inline-flex h-9 cursor-pointer items-center justify-center rounded-full bg-foreground",
                 "px-4 text-sm font-medium text-background transition-colors",
                 "hover:bg-neutral-700",
-                "dark:hover:bg-neutral-300",
+                "dark:hover:bg-neutral-300"
               )}
             >
               Got it

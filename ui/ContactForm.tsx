@@ -15,7 +15,7 @@ export function ContactForm() {
       <div
         className={cn(
           "rounded-lg border border-green-200 bg-green-50 p-4 text-center",
-          "dark:border-green-800 dark:bg-green-950",
+          "dark:border-green-800 dark:bg-green-950"
         )}
       >
         <p className="text-sm text-green-800 dark:text-green-200">
@@ -42,7 +42,7 @@ export function ContactForm() {
           className={cn(
             "w-full rounded-lg border border-gray-300 px-3 py-2 text-sm",
             "focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none",
-            "dark:border-gray-600 dark:bg-gray-800",
+            "dark:border-gray-600 dark:bg-gray-800"
           )}
           name="email"
           placeholder="your.email@example.com"
