@@ -19,8 +19,6 @@ jobs:
 
       - name: Set up devkit
         uses: sablier-labs/devkit/actions/setup@v1
-        with:
-          install-python: false
 
       - name: Run code checks
         run: just full-check
