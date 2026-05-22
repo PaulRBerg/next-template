@@ -80,17 +80,27 @@ The dev server starts on a random available port. Check the terminal output for 
 
 ### Vercel Deployment
 
-To make the CI deployment workflow work, you have to configure these environment variables in your GitHub Actions
-secrets:
+Secrets are managed with [`dotenvx`](https://dotenvx.com). The encrypted `.env` is committed to the repo, while the
+private decryption keys in `.env.keys` stay local (and out of source control). Set your deployment values with:
 
-- `VERCEL_ORG_ID`
-- `VERCEL_PROJECT_ID`
-- `VERCEL_TOKEN`
+```bash
+na dotenvx set VERCEL_ORG_ID <value>
+na dotenvx set VERCEL_PROJECT_ID <value>
+na dotenvx set VERCEL_TOKEN <value>
+```
+
+The CI deployment workflow only needs a single GitHub Actions secret, `DOTENV_PRIVATE_KEY`, which it uses to decrypt
+`.env` at deploy time.
 
 > [!TIP]
 >
-> If you use the [`gh`](https://cli.github.com) CLI, you can put your environment variables in a `.env` file and then
-> run this command: `gh secret set -f .env`.
+> If you use the [`gh`](https://cli.github.com) CLI, set the CI secret straight from your local keys file:
+> `gh secret set -f .env.keys`.
+
+> [!WARNING]
+>
+> Cloning this template gives you an encrypted `.env` you cannot decrypt. Run `na dotenvx rotate` (or delete `.env` and
+> `.env.keys`, then re-run the `set` commands above) to generate your own keypair before deploying.
 
 ## Commands
 

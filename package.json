@@ -22,6 +22,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.15",
+    "@dotenvx/dotenvx": "^1.67.0",
     "@sablier/devkit": "^1.18.1",
     "@tailwindcss/postcss": "^4.3.0",
     "@types/node": "^25.9.1",

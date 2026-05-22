@@ -22,11 +22,11 @@ default:
 clean:
     nlx del-cli .next
 
-# Deploy website to Vercel
+# Deploy website to Vercel (dotenvx decrypts VERCEL_* from .env)
 deploy environment="production":
-    na vercel pull --environment={{ environment }} --token=$VERCEL_TOKEN --yes
-    na vercel build --target={{ environment }} --token=$VERCEL_TOKEN
-    na vercel deploy --target={{ environment }} --prebuilt --token=$VERCEL_TOKEN
+    na dotenvx run -- na vercel pull --environment={{ environment }} --yes
+    na dotenvx run -- na vercel build --target={{ environment }}
+    na dotenvx run -- na vercel deploy --target={{ environment }} --prebuilt
 alias d := deploy
 
 # ---------------------------------------------------------------------------- #

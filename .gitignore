@@ -5,7 +5,11 @@ dist/
 node_modules/
 
 # files
-*.env
+# dotenvx: commit the encrypted .env, never the private keys or local overrides
+# (negate .env to override a global ignore such as `.env*`)
+!.env
+.env.keys
+.env*.local
 *.log
 next-env.d.ts
 *.tsbuildinfo
