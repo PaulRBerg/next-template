@@ -5,7 +5,7 @@ import {
   HttpApiGroup,
   HttpServer,
 } from "@effect/platform";
-import { Effect, Layer, Schema } from "effect";
+import { DateTime, Effect, Layer, Schema } from "effect";
 
 // Define API schema
 class HealthApi extends HttpApiGroup.make("health").add(
@@ -23,10 +23,14 @@ class Api extends HttpApi.make("api").add(HealthApi).prefix("/api/health") {}
 // Implement handler
 const HealthLive = HttpApiBuilder.group(Api, "health", (handlers) =>
   handlers.handle("check", () =>
-    Effect.succeed({
-      status: "healthy" as const,
-      timestamp: new Date().toISOString(),
-      version: "1.0.0",
+    Effect.gen(function* () {
+      const now = yield* DateTime.now;
+
+      return {
+        status: "healthy" as const,
+        timestamp: DateTime.formatIso(now),
+        version: "1.0.0",
+      };
     })
   )
 );

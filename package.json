@@ -6,10 +6,10 @@
   "dependencies": {
     "@base-ui/react": "^1.5.0",
     "@effect/platform": "^0.96.1",
-    "@effect/platform-node": "^0.106.0",
+    "@effect/platform-node": "^0.107.0",
     "@prb/effect-next": "^1.1.0",
     "client-only": "^0.0.1",
-    "effect": "^3.21.2",
+    "effect": "^3.21.3",
     "lucide-react": "^1.16.0",
     "next": "^16.2.6",
     "react": "^19.2.6",
