@@ -8,7 +8,7 @@
     "@sablier/devkit/biome/ui"
   ],
   "files": {
-    "includes": ["**/*.{css,graphql,js,jsx,json,jsonc,ts,tsx}"]
+    "includes": ["**/*.{css,graphql,js,jsx,json,jsonc,ts,tsx}", "!**/*.svg"]
   },
   "linter": {
     "rules": {
