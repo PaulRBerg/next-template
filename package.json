@@ -23,7 +23,7 @@
   "devDependencies": {
     "@biomejs/biome": "^2.5.1",
     "@dotenvx/dotenvx": "^1.75.1",
-    "@sablier/devkit": "^1.18.5",
+    "@prb/devkit": "^1.0.0",
     "@tailwindcss/postcss": "^4.3.1",
     "@types/node": "^26.0.0",
     "@types/react": "^19.2.17",

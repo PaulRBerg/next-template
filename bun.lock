@@ -24,7 +24,7 @@
       "devDependencies": {
         "@biomejs/biome": "^2.5.1",
         "@dotenvx/dotenvx": "^1.75.1",
-        "@sablier/devkit": "^1.18.5",
+        "@prb/devkit": "^1.0.0",
         "@tailwindcss/postcss": "^4.3.1",
         "@types/node": "^26.0.0",
         "@types/react": "^19.2.17",
@@ -437,6 +437,8 @@
 
     "@pkgr/core": ["@pkgr/core@0.2.9", "", {}, "sha512-QNqXyfVS2wm9hweSYD2O7F0G06uurj9kZ96TRQE5Y9hU7+tgdZwIkbAKc5Ocy1HxEY2kuDQa6cQ1WRs/O5LFKA=="],
 
+    "@prb/devkit": ["@prb/devkit@1.0.0", "", { "peerDependencies": { "vitest": ">=2.0.0" }, "optionalPeers": ["vitest"] }, "sha512-6Ifa4nxg2CkUu5IwcPT9KgNZuWZ/Jpe8QfHKD1moZmui67wqIb67WbbbYMt3L2JQs8hm1+c4cHw9PwS+RMrUGQ=="],
+
     "@prb/effect-next": ["@prb/effect-next@1.2.0", "", { "peerDependencies": { "@effect/opentelemetry": "^0.63.0", "@effect/platform": "catalog:peers", "effect": "catalog:peers", "next": "catalog:peers", "react": "catalog:peers", "react-dom": "catalog:peers" }, "optionalPeers": ["@effect/opentelemetry", "@effect/platform", "react", "react-dom"] }, "sha512-wJvL0rQY5cfUKlH8V8+ge0qLjuWK2yzfB+ksjZMZkPzRprIjW7lHmGQiAbT19tr2EwqiPhuWZM7mR59H3gLX1A=="],
 
     "@renovatebot/pep440": ["@renovatebot/pep440@4.2.1", "", {}, "sha512-2FK1hF93Fuf1laSdfiEmJvSJPVIDHEUTz68D3Fi9s0IZrrpaEcj6pTFBTbYvsgC5du4ogrtf5re7yMMvrKNgkw=="],
@@ -470,8 +472,6 @@
     "@rolldown/pluginutils": ["@rolldown/pluginutils@1.0.0-rc.1", "", {}, "sha512-UTBjtTxVOhodhzFVp/ayITaTETRHPUPYZPXQe0WU0wOgxghMojXxYjOiPOauKIYNWJAWS2fd7gJgGQK8GU8vDA=="],
 
     "@rollup/pluginutils": ["@rollup/pluginutils@5.2.0", "", { "dependencies": { "@types/estree": "^1.0.0", "estree-walker": "^2.0.2", "picomatch": "^4.0.2" }, "peerDependencies": { "rollup": "^1.20.0||^2.0.0||^3.0.0||^4.0.0" }, "optionalPeers": ["rollup"] }, "sha512-qWJ2ZTbmumwiLFomfzTyt5Kng4hwPi9rwCYN4SHb6eaRU1KNO4ccxINHr/VhH4GgPlt1XfSTLX2LBTme8ne4Zw=="],
-
-    "@sablier/devkit": ["@sablier/devkit@1.18.5", "", { "peerDependencies": { "vitest": ">=2.0.0" }, "optionalPeers": ["vitest"] }, "sha512-xeo+7UqSzvVUu4bPApG6UhDUvpU+aTYq2DRYqgAXTyEJTmClrSnhaFVemGQjIuEMCciHcbowQzgBV3Sad10VhQ=="],
 
     "@sinclair/typebox": ["@sinclair/typebox@0.25.24", "", {}, "sha512-XJfwUVUKDHF5ugKwIcxEgc9k8b7HbznCp6eUfWgu710hMPNIO4aw4/zB5RogDQz8nd6gyCDpU9O/m6qYEWY6yQ=="],
 

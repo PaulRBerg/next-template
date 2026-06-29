@@ -35,7 +35,7 @@ Optimized for developer productivity and application performance.
 
 > [!NOTE]
 >
-> Some of the configuration files depend upon the [Sablier DevKit](https://github.com/sablier-labs/devkit)
+> Some of the configuration files depend upon the [devkit](https://github.com/PaulRBerg/devkit)
 
 ## Getting Started
 

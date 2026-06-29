@@ -4,8 +4,8 @@
     "ultracite/biome/core",
     "ultracite/biome/react",
     "ultracite/biome/next",
-    "@sablier/devkit/biome/base",
-    "@sablier/devkit/biome/ui"
+    "@prb/devkit/biome/base",
+    "@prb/devkit/biome/ui"
   ],
   "files": {
     "includes": ["**/*.{css,graphql,js,jsx,json,jsonc,ts,tsx}", "!**/*.svg"]
