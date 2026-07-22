@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/paulrberg-next-template-badge.png)](https://mseep.ai/app/paulrberg-next-template)
+
 # Next.js Template [![NextJS][next-badge]][next] [![Node.js Version][node-badge]][node-url] [![TypeScript Version][typescript-badge]][typescript-url] [![License: MIT][license-badge]][license-url]
 
 [next]: https://nextjs.org/
