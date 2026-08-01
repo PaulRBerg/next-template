@@ -132,7 +132,7 @@ Make sure to run `bun install` first!
 
 ### Other Commands
 
-Run `just` to see all available commands, including `prettier-*`, `mdformat-*`, and `knip-*`.
+Run `just` to see all available commands, including `prettier-*` and `knip-*`.
 
 ## Project Structure
 
