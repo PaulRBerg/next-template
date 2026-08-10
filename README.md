@@ -1,87 +1,51 @@
-# Next.js Template [![NextJS][next-badge]][next] [![Node.js Version][node-badge]][node-url] [![TypeScript Version][typescript-badge]][typescript-url] [![License: MIT][license-badge]][license-url]
+# Next.js Template [![NextJS][next-badge]][next] [![TypeScript Version][typescript-badge]][typescript-url] [![License: MIT][license-badge]][license-url]
 
 [next]: https://nextjs.org/
 [next-badge]: https://img.shields.io/badge/Next-black?style=flat&logo=next.js&logoColor=white
-[node-badge]: https://img.shields.io/badge/node-%3E%3D20-green
-[node-url]: https://nodejs.org
 [typescript-badge]: https://img.shields.io/badge/typescript-5.9-blue
 [typescript-url]: https://www.typescriptlang.org/
 [license-badge]: https://img.shields.io/badge/License-MIT-orange.svg
 [license-url]: https://opensource.org/licenses/MIT
 
-A modern Next.js template for building production-ready web applications.
+A Next.js 16 template for building production web applications with React 19, TypeScript, Effect, and Tailwind CSS 4.
 
 ![Artwork](./artwork.jpg)
 
-## What's Inside
+## Included
 
-This template provides:
+- Next.js App Router, React Compiler, and typed routes
+- Effect 3, Effect Platform, and `@prb/effect-next` for typed server workflows
+- Tailwind CSS 4, tailwind-variants, Base UI, and Lucide icons
+- `SmartImage`, a project wrapper around `next/image` with inferred sizes and fallback alt text
+- Bun, Biome, ESLint, Prettier, Just, Husky, and lint-staged
+- Vercel deployment with encrypted environment variables managed by dotenvx
 
-- **[`AGENTS.md`](./AGENTS.md)** — Context instructions for AI agents like Claude Code
-- **[Next.js v16](https://nextjs.org)** — App Router, React v19, and React Compiler
-- **[Effect-ts](https://effect.website)** — type-safe functional programming and async effects
-- **[Vercel](https://vercel.com/guides/how-can-i-use-github-actions-with-vercel)** — hosting and CI deployments
-- **[TypeScript v5](https://typescriptlang.org)** — type safety and enhanced developer experience
-- **[Tailwind CSS v4](https://tailwindcss.com)** — utility-first CSS framework for rapid styling
-- **[Base UI](https://base-ui.com)** — headless, accessible React components
-- **[Bun](https://bun.sh)** — fast package manager and JavaScript runtime
-- **[BiomeJS](https://biomejs.dev)** — linting and formatting for TypeScript, JSON, and CSS
-- **[ESLint](https://eslint.org)** — Tailwind class validation and React hooks rules
-- **[Prettier](https://prettier.io)** — code formatting for Markdown and YAML files
-- **[Just](https://just.systems)** — command runner for streamlined task automation
-- **[Husky](https://typicode.github.io/husky)** — automated Git hooks with lint-staged
-
-Optimized for developer productivity and application performance.
-
-> [!NOTE]
->
-> Some of the configuration files depend upon the [devkit](https://github.com/PaulRBerg/devkit)
+Some configuration and Just recipes are provided by [devkit](https://github.com/PaulRBerg/devkit).
 
 ## Getting Started
 
-Click the [`Use this template`](https://github.com/PaulRBerg/next-template/generate) button to create a new repository.
-
-Or clone manually:
+Use the [`Use this template`](https://github.com/PaulRBerg/next-template/generate) button, or clone it manually:
 
 ```bash
 git clone https://github.com/PaulRBerg/next-template.git my-app
 cd my-app
 ```
 
-And then run:
+Install [Bun](https://bun.sh), [Ni](https://github.com/antfu-collective/ni), and
+[Just](https://just.systems), then run:
 
 ```bash
 bun install
-bun husky
-just --list
-```
-
-New to Next.js? Check out these resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [Next.js GitHub repository](https://github.com/vercel/next.js)
-
-## Prerequisites
-
-- [Bun](https://bun.sh)
-- [Ni](https://github.com/antfu-collective/ni)
-- [Just](https://just.systems)
-
-## Usage
-
-Start the development server:
-
-```bash
 just dev
 ```
 
-The dev server starts on a random available port. Check the terminal output for the URL.
+The development URL is printed in the terminal. Run `just` to list the available build, quality, and deployment
+recipes.
 
-### Vercel Deployment
+## Vercel Deployment
 
-Secrets are managed with [`dotenvx`](https://dotenvx.com). The encrypted `.env` is committed to the repo, while the
-private decryption keys in `.env.keys` stay local (and out of source control). Set your deployment values with:
+The committed `.env` is encrypted; private decryption keys remain local in the ignored `.env.keys` file. A clone cannot
+decrypt the template's environment, so remove that `.env` and create project-specific values:
 
 ```bash
 na dotenvx set VERCEL_ORG_ID <value>
@@ -89,102 +53,20 @@ na dotenvx set VERCEL_PROJECT_ID <value>
 na dotenvx set VERCEL_TOKEN <value>
 ```
 
-The CI deployment workflow only needs a single GitHub Actions secret, `DOTENV_PRIVATE_KEY`, which it uses to decrypt
-`.env` at deploy time.
+Add the generated private key to GitHub Actions as `DOTENV_PRIVATE_KEY`. With the GitHub CLI, load it directly from the
+keys file:
 
-> [!TIP]
->
-> If you use the [`gh`](https://cli.github.com) CLI, set the CI secret straight from your local keys file:
-> `gh secret set -f .env.keys`.
-
-> [!WARNING]
->
-> Cloning this template gives you an encrypted `.env` you cannot decrypt. Run `na dotenvx rotate` (or delete `.env` and
-> `.env.keys`, then re-run the `set` commands above) to generate your own keypair before deploying.
-
-## Commands
-
-This template uses [Just](https://just.systems/) for task automation.
-
-### Development
-
-Make sure to run `bun install` first!
-
-| Command       | Description              |
-| ------------- | ------------------------ |
-| `just dev`    | Start development server |
-| `just build`  | Build for production     |
-| `just start`  | Start production server  |
-| `just clean`  | Clean build artifacts    |
-| `just deploy` | Deploy to Vercel         |
-
-### Code Quality
-
-| Command              | Description                                  |
-| -------------------- | -------------------------------------------- |
-| `just biome-check`   | Check code with Biome (lint + format)        |
-| `just biome-write`   | Auto-fix Biome issues                        |
-| `just eslint-check`  | Check Tailwind classes and React hooks rules |
-| `just eslint-write`  | Auto-fix ESLint issues                       |
-| `just type-check`    | Type check with tsgo (falls back to tsc)     |
-| `just full-check`    | Run all quality checks                       |
-| `just full-write`    | Fix all quality issues                       |
-
-### Other Commands
-
-Run `just` to see all available commands, including `prettier-*`, `mdformat-*`, and `knip-*`.
-
-## Project Structure
-
-```tree
-├── .github/workflows/     # GitHub Actions (CI/CD)
-├── .husky/                # Git hooks configuration
-├── app/                   # Next.js App Router
-│   ├── api/health/        # Health check API route
-│   ├── globals.css        # Global styles and Tailwind directives
-│   ├── layout.tsx         # Root layout
-│   └── page.tsx           # Home page
-├── lib/                   # Shared utilities
-│   ├── cn.ts              # Tailwind class merge utility
-│   ├── regex.ts           # Regex utilities
-│   └── effect/            # Effect-ts utilities
-├── public/                # Static files
-├── ui/                    # UI components
-│   ├── Button.tsx         # Button component
-│   ├── SmartImage.tsx     # Enhanced next/image wrapper
-│   └── SmartLink.tsx      # Enhanced next/link wrapper
-├── AGENTS.md              # AI agent instructions (CLAUDE.md → symlink)
-├── biome.jsonc            # Biome configuration
-├── eslint.config.mts      # ESLint configuration (Tailwind + React hooks)
-├── justfile               # Just command definitions
-├── next.config.ts         # Next.js configuration
-├── package.json           # Package configuration
-├── postcss.config.mjs     # PostCSS configuration
-└── tsconfig.json          # TypeScript configuration
+```bash
+gh secret set -f .env.keys
 ```
 
-## Customization
+The deployment workflow runs manually through `workflow_dispatch`; enable its commented `push` trigger if deployments
+should run automatically from `main`.
 
-### Styling
+## Contributing
 
-Customize the design system by editing:
-
-- `app/globals.css` — global styles and Tailwind directives
-- `postcss.config.mjs` — PostCSS configuration
-
-### Linting and Formatting
-
-Code quality is enforced with Biome (`biome.jsonc`) and ESLint (`eslint.config.mts`). ESLint handles Tailwind class
-validation and React hooks rules that Biome doesn't support yet.
-
-## Deployment
-
-Deploy easily with
-[Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme),
-the platform from Next.js creators.
-
-See the [Next.js deployment documentation](https://nextjs.org/docs/deployment) for other options.
+See [`AGENTS.md`](./AGENTS.md) for development and validation conventions.
 
 ## License
 
-This project is licensed under MIT.
+MIT

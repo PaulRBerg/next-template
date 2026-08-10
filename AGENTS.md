@@ -1,157 +1,55 @@
 # Development Instructions
 
-AI agents working on this Next.js project must follow these guidelines.
+## Validation
 
-References:
+After changing code, run applicable checks in this order:
 
-- **Project overview**: @README.md
-- **Dependencies**: @package.json
+1. `na biome lint <files>` for changed JavaScript, TypeScript, JSON, CSS, or GraphQL files.
+2. `na eslint <files>` for changed TypeScript files; ESLint owns Tailwind CSS validation and React Hooks dependencies.
+3. `na tsgo --noEmit` for the entire project.
 
-## Lint Rules
+For the first two commands, pass explicit paths when fewer than 10 files changed. With 10 or more changed files, omit
+Biome's paths and pass `.` to ESLint. Fix only failures caused by your changes.
 
-After generating code, run these commands **in order**.
+Use `just` to discover broader workflows. For dependencies, use `ni`, `ni <package>`, `ni -D <package>`, and
+`nun <package>` so the Bun-backed package manager is selected consistently.
 
-**File argument rules:**
+## Code Conventions
 
-- Changed fewer than 10 files? → Pass specific paths or globs
-- Changed 10+ files? → Omit file arguments to process all files
+### Names and Types
 
-**Command sequence:**
+- Use `kebab-case` for directories and non-component files, `PascalCase` for component files, and `camelCase` for hooks.
+- Prefer `type` over `interface`, `satisfies` for type-safe constants, and `unknown` over `any`.
+- Use `null` for known-empty in-memory UI or domain state. Omit boundary values with `undefined` in URLs, storage,
+  network payloads, and configuration; preserve existing JSON omission semantics.
 
-1. **Identify which file types changed**
+### React and Next.js
 
-2. **`na biome lint <files>`** — lint JS/TS/JSON/CSS/GraphQL (skip if none changed)
+- Use Server Components by default. Add `"use client"` only for hooks, event handlers, or browser APIs; add
+  `"use server"` for Server Actions. Use `server-only` and `client-only` imports for environment-specific modules. Place
+  directives before imports.
+- Use named exports except where Next.js requires a default export.
+- Lazy-load heavy components with `next/dynamic` from `Component.lazy.tsx` files.
+- Do not add `useMemo` or `useCallback`; React Compiler is enabled. Wrap unstable external-library values used by an
+  effect in `useEffectEvent` when they would otherwise cause resubscriptions or loops.
+- Treat `ref` as a normal React 19 prop. Use `forwardRef` only with `useImperativeHandle`.
+- Prefer Actions with `useActionState` or `useFormStatus`, and use `<form action>` for server mutations.
+- Render every image with `SmartImage` from `@/ui/SmartImage`, which supplies inferred `sizes` and fallback alt text.
+- Do not wrap JSX conditions in `Boolean(...)`; use the underlying condition directly.
 
-3. **`na eslint <files>`** — validate Tailwind classes and React hooks rules (skip if no `.ts`/`.tsx` changed)
+### Effect
 
-4. **`na tsgo --noEmit`** — verify TypeScript types (always run on entire project)
+Use `Effect.Duration` for duration constants and conversions instead of arithmetic or numeric timeout literals. For
+example, use `Duration.toMillis("5 minutes")` rather than `300_000`.
 
-**Examples:**
+### UI
 
-```bash
-# Fewer than 10 files: use specific paths and/or globs
-na biome lint app/page.tsx lib/**/*
-na eslint app/page.tsx
-
-# 10+ files: run default command
-na biome lint
-na eslint .
-
-# TypeScript check runs on entire project
-na tsgo --noEmit
-```
-
-If any command fails, analyze the errors and fix only those related to files you changed.
-
-## Commands
-
-### Dependency Management
-
-```bash
-ni                   # Install all dependencies
-ni package-name      # Add dependency
-ni -D package-name   # Add dev dependency
-nun package-name     # Remove dependency
-```
-
-## Code Standards
-
-### Naming Conventions
-
-- **Directories**: Always use `kebab-case` for directories (e.g., `user-profile`)
-- **Files**:
-  - Use `PascalCase` for components (e.g., `UserProfile.tsx`)
-  - Use `camelCase` for hooks (e.g., `useIsClient.ts`)
-  - Use `kebab-case` for all other files, e.g. utilities, machines, etc. (e.g., `error-handler.ts`)
-
-### TypeScript
-
-- Prefer `type` over `interface`
-- Prefer `function` over `() =>` for function types (unless you have to use an arrow function for a callback or event
-  handler)
-- Use `satisfies` operator for type-safe constants
-- Avoid `any`; use `unknown` if type is truly unknown
-- Export types from dedicated `.types.ts` files
-
-### Null vs Undefined
-
-- Use `null` for internal UI/domain state to represent "known empty" (previews, caches, in-memory state)
-- Use `undefined`/omission for serialized or boundary-crossing payloads (URL params, localStorage, network payloads,
-  configs)
-- Don't change JSON omission semantics unless all consumers are updated
-
-### Comments
-
-- Use `/** */` (JSDoc-style) for functions, classes, file overviews, and type/object properties
-- Use `//` for comments explaining variables and inline logic within functions
-- Prefer self-documenting code; avoid obvious comments that restate what the code does
-- Use `// TODO:` for temporary notes that need follow-up work
-
-### React/ Next.js
-
-- Lazy load heavy components with `next/dynamic` from `Component.lazy.tsx` files
-- Use named exports: `export function Foo()` instead of `export default`, unless you have to use a default export (e.g.,
-  in a `page.tsx` file)
-- Do not use `useMemo` or `useCallback` - React Compiler automatically optimizes re-renders
-- Use `<SmartImage>` from `@/ui/SmartImage` for all images (wraps `next/image` with auto-inferred `sizes` and alt text)
-- Avoid `Boolean(condition) && <Component />`; use `condition ? <Component /> : null` and raw checks
-
-### React 19
-
-- Treat `ref` as a normal prop; avoid `forwardRef` unless you need `useImperativeHandle`
-- Prefer Actions with `useActionState` / `useFormStatus` for forms; use `<form action>` for server mutations
-- Use `useEffectEvent` for event listeners to avoid resubscribe churn
-
-**React Compiler limitation:** React Compiler cannot stabilize return values from external libraries. Wrap unstable
-external refs in `useEffectEvent` to avoid infinite loops in `useEffect`.
-
-### Server/Client Boundaries
-
-Core rules:
-
-- Use Server Components by default
-- Add `"use client"` only when needed (interactivity, hooks, browser APIs)
-- Prefer `async/await` in Server Components over `useEffect`
-
-When creating or moving files, apply the appropriate boundary marker:
-
-- `"use client"` — files using React hooks, browser APIs, or event handlers
-- `"use server"` — files containing Server Actions (form submissions, mutations)
-- `import "server-only"` — files that must never reach the client (internal logic, non-`NEXT_PUBLIC_` env vars)
-- `import "client-only"` — files relying on browser APIs (`window`, `document`, etc.)
-
-Place directives at the very top of the file, before imports. Server Components need no directive—they are the default.
-
-### Time Durations
-
-Use `Effect.Duration` instead of manual calculations for time constants:
-
-```ts
-// ❌ Avoid
-const SECONDS_IN_DAY = 24 * 60 * 60;
-const timeout = 60_000;
-
-// ✅ Prefer
-import { Duration } from "effect";
-Duration.toSeconds("1 day"); // 86400
-Duration.toMillis("5 minutes"); // 300000
-```
-
-### Styling
-
-- Use Tailwind's design tokens (no arbitrary values unless necessary)
-- Component variants with `tv` (tailwind-variants)
-- Consistent spacing scale
-- Use `lucide-react` for icons instead of hard-coding SVGs
-
-### Base UI
-
-- Use [Base UI](https://base-ui.com) (`@base-ui/react`) for headless, accessible UI primitives
-- Import individual components: `import { Dialog } from "@base-ui/react/dialog"`
-- Style parts directly with Tailwind classes (e.g., `<Dialog.Popup className="...">`)
-- Use `data-[starting-style]` / `data-[ending-style]` attributes for enter/exit animations
-- Base UI components require `"use client"` since they manage interactive state
+- Prefer Tailwind design tokens; use arbitrary values only when the design cannot be expressed on the configured scale.
+- Define component variants with `tv` from `tailwind-variants` and use Lucide icons instead of handwritten SVG.
+- Build interactive primitives with Base UI. Import individual modules such as `@base-ui/react/dialog`, style parts
+  directly with Tailwind, and use `data-[starting-style]` and `data-[ending-style]` for transitions. Base UI components
+  are Client Components.
 
 ## Troubleshooting
 
-Use Next DevTools MCP server.
+Use Next DevTools MCP for runtime inspection and framework-specific debugging.
