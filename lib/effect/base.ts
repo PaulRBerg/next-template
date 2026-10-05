@@ -1,10 +1,10 @@
 import "server-only";
 
 import { Next } from "@prb/effect-next/handlers";
-import { Layer, Logger, LogLevel } from "effect";
+import { Layer, References } from "effect";
 
 // Stateless base layer - no runtime management needed
-const AppLive = Layer.empty.pipe(Layer.provide(Logger.minimumLogLevel(LogLevel.Info)));
+const AppLive = Layer.succeed(References.MinimumLogLevel, "Info");
 
 // Base handlers for different contexts
 export const BasePage = Next.make("BasePage", AppLive);

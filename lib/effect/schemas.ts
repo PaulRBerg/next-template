@@ -2,9 +2,9 @@ import { Schema } from "effect";
 
 // Email validation schema (replaces Zod)
 export const EmailSchema = Schema.Struct({
-  email: Schema.String.pipe(
-    Schema.pattern(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, {
-      message: () => "Please enter a valid email address",
+  email: Schema.String.check(
+    Schema.isPattern(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, {
+      message: "Please enter a valid email address",
     })
   ),
 });

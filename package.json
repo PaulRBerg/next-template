@@ -5,11 +5,9 @@
   "version": "1.0.0",
   "dependencies": {
     "@base-ui/react": "^1.6.0",
-    "@effect/platform": "^0.97.0",
-    "@effect/platform-node": "^0.108.0",
-    "@prb/effect-next": "^1.2.0",
+    "@prb/effect-next": "^2.0.0",
     "client-only": "^0.0.1",
-    "effect": "^3.22.0",
+    "effect": "^4.0.1",
     "lucide-react": "^1.25.0",
     "next": "^16.2.11",
     "react": "^19.2.8",

@@ -14,7 +14,7 @@ A Next.js 16 template for building production web applications with React 19, Ty
 ## Included
 
 - Next.js App Router, React Compiler, and typed routes
-- Effect 3, Effect Platform, and `@prb/effect-next` for typed server workflows
+- Effect 4 and `@prb/effect-next` for typed server workflows
 - Tailwind CSS 4, tailwind-variants, Base UI, and Lucide icons
 - `SmartImage`, a project wrapper around `next/image` with inferred sizes and fallback alt text
 - Bun, Biome, ESLint, Prettier, Just, Husky, and lint-staged

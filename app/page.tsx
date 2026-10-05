@@ -36,7 +36,7 @@ const TECH_STACK: TechItem[] = [
     icon: Layers,
     name: "Effect-ts",
     url: "https://effect.website",
-    version: "v3",
+    version: "v4",
   },
   {
     description: "Type safety",

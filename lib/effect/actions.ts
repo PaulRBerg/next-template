@@ -14,15 +14,15 @@ const subscribeEffect = (_prevState: FormState, formData: FormData) =>
     const email = formData.get("email") as string;
 
     // Decode with Effect Schema
-    const input = yield* Schema.decodeUnknown(EmailSchema)({ email });
+    const input = yield* Schema.decodeUnknownEffect(EmailSchema)({ email });
 
     // Simulate API call (Effect.sleep replaces setTimeout)
     yield* Effect.sleep("1 second");
 
     return { email: input.email, success: true as const };
   }).pipe(
-    Effect.catchAll((error) => {
-      // Extract message from ParseError or use generic message
+    Effect.catch((error) => {
+      // Extract message from SchemaError or use generic message
       const message = error instanceof Error ? error.message : "Please enter a valid email address";
       return Effect.succeed({ error: message, success: false as const });
     })

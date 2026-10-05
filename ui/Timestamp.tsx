@@ -6,10 +6,10 @@ type TimestampProps = {
 };
 
 export function Timestamp({
-  date = DateTime.unsafeNow(),
+  date = DateTime.nowUnsafe(),
   label = "Last modified",
 }: TimestampProps) {
-  const dt = DateTime.unsafeMake(date);
+  const dt = DateTime.makeUnsafe(date);
 
   const year = DateTime.getPart(dt, "year");
   const month = String(DateTime.getPart(dt, "month")).padStart(2, "0");
