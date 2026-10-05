@@ -1,8 +1,12 @@
 {
   "name": "@prb/next-template",
-  "description": "Next.js template for building web applications.",
-  "private": true,
   "version": "1.0.0",
+  "private": true,
+  "description": "Next.js template for building web applications.",
+  "scripts": {
+    "build": "next build",
+    "prepare": "husky"
+  },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
     "@prb/effect-next": "^2.0.0",
@@ -38,9 +42,5 @@
     "typescript": "^5.9.3",
     "ultracite": "^7.9.4",
     "vercel": "^56.5.0"
-  },
-  "scripts": {
-    "build": "next build",
-    "prepare": "husky"
   }
 }
