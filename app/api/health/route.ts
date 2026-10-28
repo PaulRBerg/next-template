@@ -1,15 +1,12 @@
-import { DateTime, Effect, Layer, Schema } from "effect";
+import { DateTime, Effect, Layer } from "effect";
 import { HttpRouter, HttpServer } from "effect/http";
 import { HttpApi, HttpApiBuilder, HttpApiEndpoint, HttpApiGroup } from "effect/http-api";
+import { HealthCheckSchema } from "@/lib/effect/schemas";
 
 // Define API schema
 class HealthApi extends HttpApiGroup.make("health").add(
   HttpApiEndpoint.get("check", "/", {
-    success: Schema.Struct({
-      status: Schema.Literal("healthy"),
-      timestamp: Schema.String,
-      version: Schema.String,
-    }),
+    success: HealthCheckSchema,
   })
 ) {}
 

@@ -30,6 +30,31 @@ deploy environment="production":
 alias d := deploy
 
 # ---------------------------------------------------------------------------- #
+#                                    CHECKS                                    #
+# ---------------------------------------------------------------------------- #
+
+# Run all code checks
+[group("checks"), no-cd]
+@_full-check:
+    just _run-with-status biome-check
+    just _run-with-status eslint-check
+    just _run-with-status prettier-check
+    just _run-with-status type-check
+
+# Run all code fixes
+[group("checks"), no-cd]
+@_full-write:
+    just _run-with-status biome-write
+    just _run-with-status eslint-write
+    just _run-with-status prettier-write
+
+# Type check with TypeScript's native compiler
+[group("checks"), no-cd]
+[arg("project", long, short, help="Path to tsconfig.json")]
+type-check project="tsconfig.json":
+    na tsgo --noEmit --project {{ project }}
+
+# ---------------------------------------------------------------------------- #
 #                                    ESLINT                                    #
 # ---------------------------------------------------------------------------- #
 

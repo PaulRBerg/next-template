@@ -7,6 +7,10 @@ import { Button } from "./Button";
 
 type FormState = { success: boolean; error?: string; email?: string } | null;
 
+function reloadPage() {
+  window.location.reload();
+}
+
 export function ContactForm() {
   const [state, formAction, isPending] = useActionState<FormState, FormData>(subscribe, null);
 
@@ -21,7 +25,7 @@ export function ContactForm() {
         <p className="text-sm text-green-800 dark:text-green-200">
           ✅ Thanks for subscribing! We'll keep you updated.
         </p>
-        <Button className="mt-2" onClick={() => window.location.reload()} size="sm" variant="ghost">
+        <Button className="mt-2" onClick={reloadPage} size="sm" variant="ghost">
           Subscribe another email
         </Button>
       </div>
