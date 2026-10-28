@@ -9,10 +9,10 @@ export type { StaticImageData } from "next/image";
 
 type SmartImageSrc = ImageProps["src"];
 
-const CAMEL_CASE_BOUNDARY = /([a-z])([A-Z])/g;
-const WORD_DELIMITER = /[-_.]+/g;
-const FILE_EXTENSION = /\.[^.]+$/;
-const MULTI_SPACE = /\s+/g;
+const CAMEL_CASE_BOUNDARY = /(?<lowercase>[a-z])(?<uppercase>[A-Z])/gu;
+const WORD_DELIMITER = /[-_.]+/gu;
+const FILE_EXTENSION = /\.[^.]+$/u;
+const MULTI_SPACE = /\s+/gu;
 
 /** Extracts a human-readable alt from an image src path (e.g. "/icons/globe-dark.svg" → "Globe dark"). */
 function inferAltFromSrc(src: SmartImageSrc): string | undefined {
@@ -35,7 +35,7 @@ function inferAltFromSrc(src: SmartImageSrc): string | undefined {
   const filename = resolved.split("/").pop() ?? "";
   const stem = filename.replace(FILE_EXTENSION, "");
   const formatted = stem
-    .replace(CAMEL_CASE_BOUNDARY, "$1 $2")
+    .replace(CAMEL_CASE_BOUNDARY, "$<lowercase> $<uppercase>")
     .replace(WORD_DELIMITER, " ")
     .replace(MULTI_SPACE, " ")
     .trim();

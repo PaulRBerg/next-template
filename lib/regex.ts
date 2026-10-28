@@ -1,3 +1,3 @@
 export const URL_PATTERNS = {
-  absoluteHttp: /^https?:\/\//,
+  absoluteHttp: /^https?:\/\//u,
 } as const;

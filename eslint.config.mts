@@ -1,5 +1,5 @@
 /**
- * We only use ESLint for two things Biome can't do:
+ * ESLint owns these checks in this project:
  * 1. Tailwind CSS v4 class validation (unknown classes, conflicts, deprecated, shorthands)
  * 2. React hooks exhaustive-deps
  *
@@ -30,7 +30,7 @@ const tailwindSelectors = [
 
 /**
  * ESLint owns all Tailwind CSS semantics: class ordering, canonicalization, and correctness.
- * Biome's useSortedClasses is disabled locally because it lacks a Tailwind v4 sort preset.
+ * Devkit disables Biome's useTailwindSortedClasses to avoid duplicate class-order enforcement.
  * @see {@link file://./biome.jsonc}
  * @see https://github.com/schoero/eslint-plugin-better-tailwindcss
  */
