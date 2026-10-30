@@ -52,7 +52,7 @@ alias d := deploy
 [group("checks"), no-cd]
 [arg("project", long, short, help="Path to tsconfig.json")]
 type-check project="tsconfig.json":
-    na tsgo --noEmit --project {{ project }}
+    na tsc --noEmit --project {{ project }}
 
 # ---------------------------------------------------------------------------- #
 #                                    ESLINT                                    #

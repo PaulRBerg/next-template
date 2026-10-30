@@ -6,13 +6,16 @@ After changing code, run applicable checks in this order:
 
 1. `na biome lint <files>` for changed JavaScript, TypeScript, JSON, CSS, or GraphQL files.
 2. `na eslint <files>` for changed TypeScript files. ESLint owns Tailwind CSS validation and React Hooks dependencies.
-3. `na tsgo --noEmit` for the entire project.
+3. `na tsc --noEmit` for the entire project.
 
 For the first two commands, pass explicit paths when fewer than 10 files changed. With 10 or more changed files, omit
 Biome's paths and pass `.` to ESLint. Fix only failures caused by your changes.
 
 Use `just` to discover broader workflows. For dependencies, use `ni`, `ni <package>`, `ni -D <package>`, and
 `nun <package>` so the Bun-backed package manager is selected consistently.
+
+`@typescript/native` provides the TypeScript 7 compiler. The `typescript` alias provides the TypeScript 6 API required
+by Next.js and ESLint. Preserve both roles when updating dependencies.
 
 ## Code Conventions
 

@@ -2,7 +2,7 @@
 
 [next]: https://nextjs.org/
 [next-badge]: https://img.shields.io/badge/Next-black?style=flat&logo=next.js&logoColor=white
-[typescript-badge]: https://img.shields.io/badge/typescript-5.9-blue
+[typescript-badge]: https://img.shields.io/badge/typescript-7.0-blue
 [typescript-url]: https://www.typescriptlang.org/
 [license-badge]: https://img.shields.io/badge/License-MIT-orange.svg
 [license-url]: https://opensource.org/licenses/MIT

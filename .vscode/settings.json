@@ -4,7 +4,7 @@
   "eslint.useFlatConfig": true,
   "tailwindCSS.classFunctions": ["cva", "cn", "tv", "tw", "tw.*"],
   "tailwindCSS.validate": true,
-  "typescript.experimental.useTsgo": true,
+  "js/ts.tsdk.path": "./node_modules/@typescript/native",
   "editor.codeActionsOnSave": {
     "source.fixAll.biome": "explicit",
     "source.fixAll.eslint": "explicit",
