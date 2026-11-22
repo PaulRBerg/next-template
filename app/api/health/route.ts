@@ -4,13 +4,13 @@ import { HttpApi, HttpApiBuilder, HttpApiEndpoint, HttpApiGroup } from "effect/h
 import { HealthCheckSchema } from "@/lib/effect/schemas";
 
 // Define API schema
-class HealthApi extends HttpApiGroup.make("health").add(
+const HealthApi = HttpApiGroup.make("health").add(
   HttpApiEndpoint.get("check", "/", {
     success: HealthCheckSchema,
   })
-) {}
+);
 
-class Api extends HttpApi.make("api").add(HealthApi).prefix("/api/health") {}
+const Api = HttpApi.make("api").add(HealthApi).prefix("/api/health");
 
 // Implement handler
 const HealthLive = HttpApiBuilder.group(Api, "health", (handlers) =>
